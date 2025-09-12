@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Uso - Fastgas</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="logo.png" type="image/png">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+    <script>
+      // Configuração do tema Tailwind
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'fastgas-yellow': '#E0C83E',
+              'fastgas-brown': '#4A3F0E',
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-gray-100 text-fastgas-brown">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0">
+        <div class="container mx-auto px-6 py-3 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="/" class="flex items-center">
+                <img src="logo.png" alt="Logo Fastgas" class="h-10 mr-3">
+            </a>
+            <a href="/" class="text-fastgas-brown font-semibold hover:text-fastgas-yellow transition-colors">
+                ← Voltar ao Início
+            </a>
+        </div>
+    </header>
+
+    <!-- Conteúdo dos Termos de Uso -->
+    <main class="container mx-auto px-6 py-12 md:py-20">
+        <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-md">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-fastgas-brown mb-6">Termos de Uso</h1>
+            <p class="text-sm text-gray-500 mb-8"><strong>Última atualização:</strong> 12 de setembro de 2025</p>
+
+            <div class="space-y-6 text-gray-700 leading-relaxed">
+                <p>Bem-vindo ao <strong>Fastgas</strong>! Ao utilizar o nosso serviço de chatbot via WhatsApp, você concorda com estes Termos de Uso. Por favor, leia-os com atenção.</p>
+
+                <div>
+                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">1. O Serviço</h2>
+                    <p>O Fastgas é uma plataforma digital, operada pela <strong>BACKLAB TECNOLOGIA LTDA</strong>, que atua como **intermediária** entre si (o "Utilizador") e as distribuidoras de gás e água (os "Parceiros"). O nosso serviço consiste em facilitar a realização do seu pedido através de um chatbot automatizado no WhatsApp.</p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">2. As Suas Responsabilidades</h2>
+                    <p>Ao utilizar o nosso serviço, você concorda em:</p>
+                    <ul class="list-disc list-inside mt-2 space-y-1">
+                        <li>Fornecer informações verdadeiras e corretas, como o seu endereço de entrega e os itens do pedido.</li>
+                        <li>Realizar o pagamento do pedido diretamente ao entregador do Parceiro no momento da entrega.</li>
+                        <li>Utilizar o serviço de forma lícita e de acordo com as regras de utilização do WhatsApp.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">3. Limitação de Responsabilidade</h2>
+                    <p>A responsabilidade pela **qualidade dos produtos** e pela **efetivação da entrega** (incluindo o tempo e a integridade do produto) é **exclusiva do Parceiro (a distribuidora)** que aceita o seu pedido.</p>
+                    <p class="mt-2">O Fastgas atua apenas como um facilitador tecnológico e não se responsabiliza por quaisquer problemas decorrentes da entrega, do produto ou da transação financeira entre si e o Parceiro.</p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">4. Propriedade Intelectual</h2>
+                    <p>A marca "Fastgas", o chatbot "Fasty" e todo o software associado são propriedade da BACKLAB TECNOLOGIA LTDA. Não é permitido copiar, modificar ou distribuir o nosso serviço sem a nossa autorização expressa.</p>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">5. Alterações nos Termos</h2>
+                    <p>Podemos atualizar estes Termos de Uso periodicamente. A versão mais recente estará sempre disponível no nosso site. O uso continuado do serviço após qualquer alteração constitui a sua aceitação dos novos termos.</p>
+                </div>
+                
+                <div>
+                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">6. Legislação Aplicável</h2>
+                    <p>Estes termos são regidos pelas leis da República Federativa do Brasil.</p>
+                </div>
+
+                <p class="pt-4 border-t border-gray-200">Se tiver alguma dúvida sobre estes termos, por favor, entre em contacto connosco através do e-mail: <strong>contato@fastgas.com.br</strong>.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-fastgas-brown text-white py-10 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 BACKLAB TECNOLOGIA LTDA. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
