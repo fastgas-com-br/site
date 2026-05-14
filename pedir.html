@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fastgas — Pedido via WhatsApp</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIxMDI0IiB2aWV3Qm94PSIwIDAgMTAyNCAxMDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIxMDI0IiBmaWxsPSIjMUUxRTFFIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjEwMjQiIGZpbGw9IiNGRkM1MzMiPjwvcmVjdD4KPHJlY3QgeD0iMjY5Ljk0NiIgeT0iMTc2LjkzNSIgd2lkdGg9IjU3Ny4xMjYiIGhlaWdodD0iNTcxLjQ4NSIgcng9IjEwOSIgdHJhbnNmb3JtPSJyb3RhdGUoNi45NTIwMiAyNjkuOTQ2IDE3Ni45MzUpIiBmaWxsPSIjMzMzMzMzIj48L3JlY3Q+CjxyZWN0IHg9IjQzNiIgeT0iMTc1IiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjkwIiByeD0iMTYiIGZpbGw9IiMzMzMzMzMiPjwvcmVjdD4KPHJlY3QgeD0iMzM5IiB5PSI3NTUiIHdpZHRoPSIzMDEiIGhlaWdodD0iNjIiIHJ4PSIxNiIgZmlsbD0iIzMzMzMzMyI+PC9yZWN0Pgo8cGF0aCBkPSJNODY2Ljk2MiAxODRMMzIzLjQ1IDQ0Ny45ODFNNTA2Ljc4NCA1MzEuNzU5TDE1Ny45NjIgODQwTDcyMC45NDQgNTIwLjY5NEw1NTAuNTg5IDQ0Ny45ODFMODY2Ljk2MiAxODRaIiBmaWxsPSIjRkZDNTMzIiBzdHJva2U9IiNGRkM1MzMiPjwvcGF0aD4KPC9zdmc+" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFC533;
+    --ink: #1F1F1F;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    height: 100%;
+  }
+  body {
+    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+    background: var(--ink);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+    padding: 24px;
+  }
+  img { display: block; }
+
+  .logo {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    margin-bottom: 32px;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: appear 0.4s ease 0.1s forwards;
+  }
+
+  .label {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.01em;
+    opacity: 0;
+    animation: appear 0.4s ease 0.25s forwards;
+  }
+
+  .dots {
+    display: inline-flex;
+    gap: 5px;
+    margin-left: 2px;
+    vertical-align: middle;
+  }
+  .dots span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--yellow);
+    display: inline-block;
+    animation: pulse 1.2s ease-in-out infinite;
+  }
+  .dots span:nth-child(2) { animation-delay: 0.2s; }
+  .dots span:nth-child(3) { animation-delay: 0.4s; }
+
+  .fallback {
+    margin-top: 28px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.25);
+    opacity: 0;
+    animation: appear 0.4s ease 1.2s forwards;
+  }
+  .fallback a {
+    color: var(--yellow);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @keyframes appear {
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes pulse {
+    0%, 80%, 100% { opacity: 0.25; transform: scale(0.8); }
+    40%           { opacity: 1;    transform: scale(1); }
+  }
+</style>
+</head>
+<body>
+
+<img class="logo" src="logo.svg" alt="Fastgas" />
+<p class="label">
+  Redirecionando para o WhatsApp<span class="dots"><span></span><span></span><span></span></span>
+</p>
+<p class="fallback">
+  Não foi redirecionado? <a href="https://wa.me/c/554831970675" id="wa-link">Clique aqui</a>
+</p>
+
+<script>
+  var WA = "https://wa.me/554831970675?text=Ol%C3%A1!%20Quero%20pedir%20g%C3%A1s%20ou%20%C3%A1gua.";
+  setTimeout(function () { window.location.href = WA; }, 1000);
+</script>
+
+</body>
+</html>
