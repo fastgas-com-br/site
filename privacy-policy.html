@@ -1,125 +1,368 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidade - Fastgas</title>
-    
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="logo.png" type="image/png">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Política de Privacidade — Fastgas</title>
+<meta name="description" content="Como o Fastgas coleta, usa e protege seus dados pessoais." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIxMDI0IiB2aWV3Qm94PSIwIDAgMTAyNCAxMDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIxMDI0IiBmaWxsPSIjMUUxRTFFIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjEwMjQiIGZpbGw9IiNGRkM1MzMiPjwvcmVjdD4KPHJlY3QgeD0iMjY5Ljk0NiIgeT0iMTc2LjkzNSIgd2lkdGg9IjU3Ny4xMjYiIGhlaWdodD0iNTcxLjQ4NSIgcng9IjEwOSIgdHJhbnNmb3JtPSJyb3RhdGUoNi45NTIwMiAyNjkuOTQ2IDE3Ni45MzUpIiBmaWxsPSIjMzMzMzMzIj48L3JlY3Q+CjxyZWN0IHg9IjQzNiIgeT0iMTc1IiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjkwIiByeD0iMTYiIGZpbGw9IiMzMzMzMzMiPjwvcmVjdD4KPHJlY3QgeD0iMzM5IiB5PSI3NTUiIHdpZHRoPSIzMDEiIGhlaWdodD0iNjIiIHJ4PSIxNiIgZmlsbD0iIzMzMzMzMyI+PC9yZWN0Pgo8cGF0aCBkPSJNODY2Ljk2MiAxODRMMzIzLjQ1IDQ0Ny45ODFNNTA2Ljc4NCA1MzEuNzU5TDE1Ny45NjIgODQwTDcyMC45NDQgNTIwLjY5NEw1NTAuNTg5IDQ0Ny45ODFMODY2Ljk2MiAxODRaIiBmaWxsPSIjRkZDNTMzIiBzdHJva2U9IiNGRkM1MzMiPjwvcGF0aD4KPC9zdmc+" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFC533;
+    --yellow-2: #FFB800;
+    --ink: #1F1F1F;
+    --ink-soft: #5C5C5C;
+    --mute: #8A8A8A;
+    --line: #ECECEC;
+    --bg: #FFFFFF;
+    --bg-soft: #F5F5F5;
+    --font: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--font);
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--bg-soft);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-    </style>
-    <script>
-      // Configuração do tema Tailwind
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'fastgas-yellow': '#E0C83E',
-              'fastgas-brown': '#4A3F0E',
-            }
-          }
-        }
-      }
-    </script>
+  .container {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* NAV */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+  .logo img { height: 36px; width: auto; border-radius: 8px; }
+  .nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    transition: color .15s ease;
+  }
+  .nav-back:hover { color: var(--ink); }
+  .nav-back svg { width: 16px; height: 16px; }
+
+  /* DOCUMENT */
+  .doc-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+  }
+  .doc-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 16px;
+  }
+  .doc-title {
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.06;
+    margin: 0 0 12px;
+  }
+  .doc-updated {
+    font-size: 13.5px;
+    color: var(--mute);
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+  }
+  .doc-section { margin-bottom: 44px; }
+  .doc-section h2 {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .doc-section h2 .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--yellow);
+    color: var(--ink);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .doc-section p {
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    line-height: 1.7;
+    margin: 0 0 12px;
+  }
+  .doc-section ul {
+    padding: 0;
+    margin: 0 0 12px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .doc-section ul li {
+    display: flex;
+    gap: 12px;
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+  .doc-section ul li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: var(--yellow);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 9px;
+  }
+  .doc-section strong { color: var(--ink); font-weight: 600; }
+  .doc-divider {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 48px 0;
+  }
+  .doc-closing {
+    font-size: 14.5px;
+    color: var(--mute);
+    line-height: 1.65;
+    padding: 20px 24px;
+    background: var(--bg);
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+    padding: 56px 0 32px;
+  }
+  .foot-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .foot-left { max-width: 280px; }
+  .foot-left p {
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin: 20px 0 0;
+    line-height: 1.55;
+  }
+  .foot-links {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 36px 56px;
+    font-size: 14px;
+  }
+  .foot-col h6 {
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin: 0 0 14px;
+  }
+  .foot-col a {
+    display: block;
+    color: var(--ink-soft);
+    padding: 5px 0;
+    transition: color .15s ease;
+  }
+  .foot-col a:hover { color: var(--ink); }
+  .foot-bottom {
+    border-top: 1px solid var(--line);
+    margin-top: 48px;
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+    color: var(--mute);
+  }
+  .foot-legal {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    font-size: 11.5px;
+    color: var(--mute);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 680px) {
+    .doc-wrap { padding: 40px 0 72px; }
+    .foot-grid { flex-direction: column; gap: 32px; }
+    .foot-links { grid-template-columns: repeat(2, auto); gap: 28px 40px; }
+  }
+</style>
 </head>
-<body class="bg-gray-100 text-fastgas-brown">
+<body>
 
-    <!-- Header -->
-    <header class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0">
-        <div class="container mx-auto px-6 py-3 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="/" class="flex items-center">
-                <img src="logo.png" alt="Logo Fastgas" class="h-10 mr-3">
-            </a>
-            <a href="/" class="text-fastgas-brown font-semibold hover:text-fastgas-yellow transition-colors">
-                ← Voltar ao Início
-            </a>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo"><img src="logo.svg" alt="Fastgas" /></a>
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Voltar ao início
+    </a>
+  </div>
+</nav>
+
+<main>
+  <div class="doc-wrap">
+    <div class="doc-eyebrow">Fastgas · Documentos legais</div>
+    <h1 class="doc-title">Política de Privacidade</h1>
+    <p class="doc-updated">Última atualização: 12 de setembro de 2025</p>
+
+    <div class="doc-section">
+      <p>Sua privacidade é importante para nós. Esta Política de Privacidade explica como o <strong>Fastgas</strong>, um serviço da <strong>BACKLAB TECNOLOGIA LTDA</strong> (CNPJ: 51.694.798/0001-50), coleta, usa e protege suas informações pessoais quando você utiliza nossa plataforma via WhatsApp.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="num">1</span>Quais dados coletamos?</h2>
+      <p>Para processar seus pedidos, coletamos as seguintes informações:</p>
+      <ul>
+        <li><strong>Dados de identificação:</strong> seu nome e número de telefone do WhatsApp.</li>
+        <li><strong>Dados de entrega:</strong> seu endereço completo (CEP, rua, número, complemento).</li>
+        <li><strong>Dados do pedido:</strong> os itens solicitados (gás, água) e a forma de pagamento escolhida.</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="num">2</span>Como usamos seus dados?</h2>
+      <p>Usamos suas informações exclusivamente para as seguintes finalidades:</p>
+      <ul>
+        <li><strong>Processar seu pedido:</strong> compartilhamos seu nome, endereço e os itens com a distribuidora parceira local para que a entrega seja realizada.</li>
+        <li><strong>Facilitar pedidos futuros:</strong> com seu consentimento explícito, podemos armazenar seu nome e endereço para agilizar suas próximas compras.</li>
+        <li><strong>Comunicação:</strong> para enviar confirmações e atualizações sobre o status do seu pedido.</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="num">3</span>Com quem compartilhamos seus dados?</h2>
+      <p>Suas informações são compartilhadas <strong>somente</strong> com a distribuidora de gás e água responsável pela entrega na sua região. Não vendemos nem compartilhamos seus dados com terceiros para fins de marketing.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="num">4</span>Seus direitos (LGPD)</h2>
+      <p>De acordo com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem o direito de:</p>
+      <ul>
+        <li><strong>Acessar:</strong> solicitar quais dados temos sobre você.</li>
+        <li><strong>Corrigir:</strong> pedir a correção de informações incompletas ou incorretas.</li>
+        <li><strong>Excluir:</strong> solicitar a remoção dos seus dados do nosso sistema.</li>
+        <li><strong>Revogar o consentimento:</strong> cancelar a autorização de armazenamento a qualquer momento.</li>
+      </ul>
+      <p>Para exercer qualquer um desses direitos, entre em contato pelo e-mail abaixo ou pelo nosso WhatsApp.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="num">5</span>Segurança dos dados</h2>
+      <p>Adotamos boas práticas de segurança para proteger suas informações contra acesso não autorizado. O tráfego de dados ocorre por canais criptografados e o acesso interno é restrito às equipes estritamente necessárias à operação do serviço.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="num">6</span>Retenção de dados</h2>
+      <p>Mantemos seus dados pelo tempo necessário para a prestação do serviço ou enquanto você for um usuário ativo. Após a solicitação de exclusão, seus dados são removidos em até 30 dias, salvo obrigação legal em contrário.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="num">7</span>Contato</h2>
+      <p>Se tiver dúvidas sobre esta Política de Privacidade, fale com a gente:</p>
+      <ul>
+        <li><strong>Empresa:</strong> BACKLAB TECNOLOGIA LTDA</li>
+        <li><strong>CNPJ:</strong> 51.694.798/0001-50</li>
+        <li><strong>E-mail:</strong> contato@fastgas.com.br</li>
+        <li><strong>Localização:</strong> Florianópolis, SC — Brasil</li>
+      </ul>
+    </div>
+
+    <hr class="doc-divider" />
+
+    <div class="doc-closing">
+      Ao usar os serviços do Fastgas, você concorda com a coleta e o uso das suas informações conforme descrito nesta política.
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="index.html" class="logo"><img src="logo.svg" alt="Fastgas" /></a>
+        <p>Gás e água pelo WhatsApp. Da distribuidora mais próxima, em poucos minutos.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h6>Produto</h6>
+          <a href="index.html#como">Como funciona</a>
+          <a href="index.html#beneficios">Vantagens</a>
+          <a href="index.html#cobertura">Cobertura</a>
         </div>
-    </header>
-
-    <!-- Conteúdo da Política de Privacidade -->
-    <main class="container mx-auto px-6 py-12 md:py-20">
-        <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-md">
-            <h1 class="text-3xl md:text-4xl font-extrabold text-fastgas-brown mb-6">Política de Privacidade</h1>
-            <p class="text-sm text-gray-500 mb-8"><strong>Última atualização:</strong> 12 de setembro de 2025</p>
-
-            <div class="space-y-6 text-gray-700 leading-relaxed">
-                <p>A sua privacidade é importante para nós. Esta Política de Privacidade explica como o <strong>Fastgas</strong>, um serviço da <strong>BACKLAB TECNOLOGIA LTDA</strong> (CNPJ: 51.694.798/0001-50), recolhe, usa e protege as suas informações pessoais quando você utiliza os nossos serviços através do WhatsApp.</p>
-
-                <div>
-                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">1. Que Dados Recolhemos?</h2>
-                    <p>Para processar os seus pedidos, recolhemos as seguintes informações:</p>
-                    <ul class="list-disc list-inside mt-2 space-y-1">
-                        <li><strong>Dados de Identificação:</strong> O seu nome e número de telefone do WhatsApp.</li>
-                        <li><strong>Dados de Entrega:</strong> O seu endereço completo (CEP, rua, número, complemento).</li>
-                        <li><strong>Dados do Pedido:</strong> Os itens que você solicitou (gás, água) e a forma de pagamento escolhida.</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">2. Como Usamos os Seus Dados?</h2>
-                    <p>Utilizamos as suas informações exclusivamente para as seguintes finalidades:</p>
-                    <ul class="list-disc list-inside mt-2 space-y-1">
-                        <li><strong>Processar o seu Pedido:</strong> Partilhamos o seu nome, endereço e os itens do pedido com a distribuidora parceira local para que a entrega possa ser realizada.</li>
-                        <li><strong>Facilitar Pedidos Futuros:</strong> Com o seu consentimento explícito, podemos armazenar o seu nome e endereço para agilizar as suas próximas compras.</li>
-                        <li><strong>Comunicação:</strong> Para enviar mensagens de confirmação e atualização sobre o status do seu pedido.</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">3. Com Quem Partilhamos os Seus Dados?</h2>
-                    <p>As suas informações são partilhadas <strong>apenas</strong> com a distribuidora de gás e água responsável por realizar a entrega na sua região. Não vendemos nem partilhamos os seus dados com terceiros para fins de marketing.</p>
-                </div>
-
-                <div>
-                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">4. Os Seus Direitos (LGPD)</h2>
-                    <p>De acordo com a Lei Geral de Proteção de Dados (LGPD), você tem o direito de:</p>
-                    <ul class="list-disc list-inside mt-2 space-y-1">
-                        <li><strong>Aceder:</strong> Solicitar o acesso aos dados que temos sobre si.</li>
-                        <li><strong>Corrigir:</strong> Pedir a correção de informações incompletas ou incorretas.</li>
-                        <li><strong>Eliminar:</strong> Solicitar a eliminação dos seus dados do nosso sistema.</li>
-                    </ul>
-                    <p class="mt-2">Para exercer qualquer um destes direitos, basta entrar em contacto connosco através do nosso chatbot ou pelo e-mail abaixo.</p>
-                </div>
-
-                <div>
-                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">5. Segurança dos Dados</h2>
-                    <p>Comprometemo-nos a usar as melhores práticas de segurança para proteger as suas informações e evitar o acesso não autorizado.</p>
-                </div>
-
-                <div>
-                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">6. Contacto</h2>
-                    <p>Se tiver alguma dúvida sobre esta Política de Privacidade, entre em contacto connosco.</p>
-                    <ul class="list-none mt-2 space-y-1">
-                        <li><strong>Empresa:</strong> BACKLAB TECNOLOGIA LTDA</li>
-                        <li><strong>E-mail:</strong> contato@fastgas.com.br</li>
-                    </ul>
-                </div>
-
-                <p class="pt-4 border-t border-gray-200">Ao utilizar os serviços do Fastgas, você concorda com a recolha e o uso das suas informações, conforme descrito nesta política.</p>
-            </div>
+        <div class="foot-col">
+          <h6>Contato</h6>
+          <a href="https://wa.me/c/554831970675" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="#" onclick="event.preventDefault()">Instagram</a>
+          <a href="mailto:contato@fastgas.com.br">contato@fastgas.com.br</a>
         </div>
-    </main>
-
-    <!-- Rodapé -->
-    <footer class="bg-fastgas-brown text-white py-10 mt-12">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2025 BACKLAB TECNOLOGIA LTDA. Todos os direitos reservados.</p>
+        <div class="foot-col">
+          <h6>Empresa</h6>
+          <a href="distribuitor.html">Para distribuidoras</a>
+          <a href="privacy-policy.html">Política de privacidade</a>
+          <a href="terms-of-use.html">Termos de uso</a>
         </div>
-    </footer>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Fastgas · fastgas.com.br</span>
+      <span>Florianópolis · Santa Catarina</span>
+    </div>
+    <div class="foot-legal">
+      Fastgas é um produto da BACKLAB TECNOLOGIA LTDA · CNPJ 51.694.798/0001-50 · Florianópolis – SC · contato@fastgas.com.br
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

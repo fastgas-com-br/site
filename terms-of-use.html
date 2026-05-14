@@ -1,111 +1,357 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Termos de Uso - Fastgas</title>
-    
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="logo.png" type="image/png">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Termos de Uso — Fastgas</title>
+<meta name="description" content="Termos e condições de uso da plataforma Fastgas." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIxMDI0IiB2aWV3Qm94PSIwIDAgMTAyNCAxMDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIxMDI0IiBmaWxsPSIjMUUxRTFFIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjEwMjQiIGZpbGw9IiNGRkM1MzMiPjwvcmVjdD4KPHJlY3QgeD0iMjY5Ljk0NiIgeT0iMTc2LjkzNSIgd2lkdGg9IjU3Ny4xMjYiIGhlaWdodD0iNTcxLjQ4NSIgcng9IjEwOSIgdHJhbnNmb3JtPSJyb3RhdGUoNi45NTIwMiAyNjkuOTQ2IDE3Ni45MzUpIiBmaWxsPSIjMzMzMzMzIj48L3JlY3Q+CjxyZWN0IHg9IjQzNiIgeT0iMTc1IiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjkwIiByeD0iMTYiIGZpbGw9IiMzMzMzMzMiPjwvcmVjdD4KPHJlY3QgeD0iMzM5IiB5PSI3NTUiIHdpZHRoPSIzMDEiIGhlaWdodD0iNjIiIHJ4PSIxNiIgZmlsbD0iIzMzMzMzMyI+PC9yZWN0Pgo8cGF0aCBkPSJNODY2Ljk2MiAxODRMMzIzLjQ1IDQ0Ny45ODFNNTA2Ljc4NCA1MzEuNzU5TDE1Ny45NjIgODQwTDcyMC45NDQgNTIwLjY5NEw1NTAuNTg5IDQ0Ny45ODFMODY2Ljk2MiAxODRaIiBmaWxsPSIjRkZDNTMzIiBzdHJva2U9IiNGRkM1MzMiPjwvcGF0aD4KPC9zdmc+" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFC533;
+    --yellow-2: #FFB800;
+    --ink: #1F1F1F;
+    --ink-soft: #5C5C5C;
+    --mute: #8A8A8A;
+    --line: #ECECEC;
+    --bg: #FFFFFF;
+    --bg-soft: #F5F5F5;
+    --font: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--font);
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--bg-soft);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-    </style>
-    <script>
-      // Configuração do tema Tailwind
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'fastgas-yellow': '#E0C83E',
-              'fastgas-brown': '#4A3F0E',
-            }
-          }
-        }
-      }
-    </script>
+  .container {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* NAV */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+  .logo img { height: 36px; width: auto; border-radius: 8px; }
+  .nav-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    transition: color .15s ease;
+  }
+  .nav-back:hover { color: var(--ink); }
+  .nav-back svg { width: 16px; height: 16px; }
+
+  /* DOCUMENT */
+  .doc-wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+  }
+  .doc-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 16px;
+  }
+  .doc-title {
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.06;
+    margin: 0 0 12px;
+  }
+  .doc-updated {
+    font-size: 13.5px;
+    color: var(--mute);
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+  }
+  .doc-section { margin-bottom: 44px; }
+  .doc-section h2 {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .doc-section h2 .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--yellow);
+    color: var(--ink);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .doc-section p {
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    line-height: 1.7;
+    margin: 0 0 12px;
+  }
+  .doc-section ul {
+    padding: 0;
+    margin: 0 0 12px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .doc-section ul li {
+    display: flex;
+    gap: 12px;
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+  .doc-section ul li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: var(--yellow);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 9px;
+  }
+  .doc-section strong { color: var(--ink); font-weight: 600; }
+  .doc-divider {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 48px 0;
+  }
+  .doc-closing {
+    font-size: 14.5px;
+    color: var(--mute);
+    line-height: 1.65;
+    padding: 20px 24px;
+    background: var(--bg);
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+    padding: 56px 0 32px;
+  }
+  .foot-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .foot-left { max-width: 280px; }
+  .foot-left p {
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin: 20px 0 0;
+    line-height: 1.55;
+  }
+  .foot-links {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 36px 56px;
+    font-size: 14px;
+  }
+  .foot-col h6 {
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin: 0 0 14px;
+  }
+  .foot-col a {
+    display: block;
+    color: var(--ink-soft);
+    padding: 5px 0;
+    transition: color .15s ease;
+  }
+  .foot-col a:hover { color: var(--ink); }
+  .foot-bottom {
+    border-top: 1px solid var(--line);
+    margin-top: 48px;
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+    color: var(--mute);
+  }
+  .foot-legal {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    font-size: 11.5px;
+    color: var(--mute);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 680px) {
+    .doc-wrap { padding: 40px 0 72px; }
+    .foot-grid { flex-direction: column; gap: 32px; }
+    .foot-links { grid-template-columns: repeat(2, auto); gap: 28px 40px; }
+  }
+</style>
 </head>
-<body class="bg-gray-100 text-fastgas-brown">
+<body>
 
-    <!-- Header -->
-    <header class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0">
-        <div class="container mx-auto px-6 py-3 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="/" class="flex items-center">
-                <img src="logo.png" alt="Logo Fastgas" class="h-10 mr-3">
-            </a>
-            <a href="/" class="text-fastgas-brown font-semibold hover:text-fastgas-yellow transition-colors">
-                ← Voltar ao Início
-            </a>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo"><img src="logo.svg" alt="Fastgas" /></a>
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Voltar ao início
+    </a>
+  </div>
+</nav>
+
+<main>
+  <div class="doc-wrap">
+    <div class="doc-eyebrow">Fastgas · Documentos legais</div>
+    <h1 class="doc-title">Termos de Uso</h1>
+    <p class="doc-updated">Última atualização: 12 de setembro de 2025</p>
+
+    <div class="doc-section">
+      <p>Bem-vindo ao <strong>Fastgas</strong>! Ao usar nossa plataforma, você concorda com estes Termos de Uso. Por favor, leia com atenção antes de continuar.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="num">1</span>O Serviço</h2>
+      <p>O Fastgas é uma plataforma digital operada pela <strong>BACKLAB TECNOLOGIA LTDA</strong> (CNPJ: 51.694.798/0001-50) que atua como <strong>intermediária</strong> entre você (o "Usuário") e as distribuidoras de gás e água (os "Parceiros"). Nossa função é facilitar a realização do seu pedido via WhatsApp, conectando você à distribuidora mais próxima disponível.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="num">2</span>Suas responsabilidades</h2>
+      <p>Ao usar nossa plataforma, você se compromete a:</p>
+      <ul>
+        <li><strong>Fornecer informações corretas:</strong> endereço de entrega, itens do pedido e dados de contato precisos e atualizados.</li>
+        <li><strong>Realizar o pagamento:</strong> diretamente ao entregador do Parceiro no momento da entrega, na forma combinada.</li>
+        <li><strong>Usar o serviço de forma lícita:</strong> em conformidade com a legislação brasileira e com as políticas de uso do WhatsApp.</li>
+      </ul>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="num">3</span>Limitação de responsabilidade</h2>
+      <p>A responsabilidade pela <strong>qualidade dos produtos</strong> e pela <strong>efetivação da entrega</strong> — incluindo prazo e integridade do item — é <strong>exclusiva do Parceiro</strong> (a distribuidora) que aceita o pedido.</p>
+      <p>O Fastgas atua exclusivamente como facilitador tecnológico e não se responsabiliza por problemas decorrentes da entrega, da qualidade do produto ou da transação financeira entre o Usuário e o Parceiro.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="num">4</span>Propriedade intelectual</h2>
+      <p>A marca <strong>Fastgas</strong> e todo o software associado são propriedade da BACKLAB TECNOLOGIA LTDA. É vedado copiar, modificar, redistribuir ou criar obras derivadas do nosso serviço sem autorização expressa e por escrito.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="num">5</span>Alterações nos termos</h2>
+      <p>Podemos atualizar estes Termos de Uso periodicamente. A versão mais recente estará sempre disponível neste site. O uso continuado da plataforma após qualquer alteração constitui sua aceitação dos novos termos.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="num">6</span>Legislação aplicável</h2>
+      <p>Estes termos são regidos pelas leis da República Federativa do Brasil. Fica eleito o foro da comarca de Florianópolis — SC para dirimir eventuais controvérsias, com renúncia a qualquer outro, por mais privilegiado que seja.</p>
+    </div>
+
+    <div class="doc-section">
+      <h2><span class="num">7</span>Contato</h2>
+      <p>Em caso de dúvidas sobre estes termos, entre em contato:</p>
+      <ul>
+        <li><strong>Empresa:</strong> BACKLAB TECNOLOGIA LTDA</li>
+        <li><strong>CNPJ:</strong> 51.694.798/0001-50</li>
+        <li><strong>E-mail:</strong> contato@fastgas.com.br</li>
+        <li><strong>Localização:</strong> Florianópolis, SC — Brasil</li>
+      </ul>
+    </div>
+
+    <hr class="doc-divider" />
+
+    <div class="doc-closing">
+      Ao usar os serviços do Fastgas, você declara ter lido, compreendido e concordado com todos os termos descritos neste documento.
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="index.html" class="logo"><img src="logo.svg" alt="Fastgas" /></a>
+        <p>Gás e água pelo WhatsApp. Da distribuidora mais próxima, em poucos minutos.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h6>Produto</h6>
+          <a href="index.html#como">Como funciona</a>
+          <a href="index.html#beneficios">Vantagens</a>
+          <a href="index.html#cobertura">Cobertura</a>
         </div>
-    </header>
-
-    <!-- Conteúdo dos Termos de Uso -->
-    <main class="container mx-auto px-6 py-12 md:py-20">
-        <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-md">
-            <h1 class="text-3xl md:text-4xl font-extrabold text-fastgas-brown mb-6">Termos de Uso</h1>
-            <p class="text-sm text-gray-500 mb-8"><strong>Última atualização:</strong> 12 de setembro de 2025</p>
-
-            <div class="space-y-6 text-gray-700 leading-relaxed">
-                <p>Bem-vindo ao <strong>Fastgas</strong>! Ao utilizar o nosso serviço de chatbot via WhatsApp, você concorda com estes Termos de Uso. Por favor, leia-os com atenção.</p>
-
-                <div>
-                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">1. O Serviço</h2>
-                    <p>O Fastgas é uma plataforma digital, operada pela <strong>BACKLAB TECNOLOGIA LTDA</strong>, que atua como **intermediária** entre si (o "Utilizador") e as distribuidoras de gás e água (os "Parceiros"). O nosso serviço consiste em facilitar a realização do seu pedido através de um chatbot automatizado no WhatsApp.</p>
-                </div>
-
-                <div>
-                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">2. As Suas Responsabilidades</h2>
-                    <p>Ao utilizar o nosso serviço, você concorda em:</p>
-                    <ul class="list-disc list-inside mt-2 space-y-1">
-                        <li>Fornecer informações verdadeiras e corretas, como o seu endereço de entrega e os itens do pedido.</li>
-                        <li>Realizar o pagamento do pedido diretamente ao entregador do Parceiro no momento da entrega.</li>
-                        <li>Utilizar o serviço de forma lícita e de acordo com as regras de utilização do WhatsApp.</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">3. Limitação de Responsabilidade</h2>
-                    <p>A responsabilidade pela **qualidade dos produtos** e pela **efetivação da entrega** (incluindo o tempo e a integridade do produto) é **exclusiva do Parceiro (a distribuidora)** que aceita o seu pedido.</p>
-                    <p class="mt-2">O Fastgas atua apenas como um facilitador tecnológico e não se responsabiliza por quaisquer problemas decorrentes da entrega, do produto ou da transação financeira entre si e o Parceiro.</p>
-                </div>
-
-                <div>
-                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">4. Propriedade Intelectual</h2>
-                    <p>A marca "Fastgas", o chatbot "Fasty" e todo o software associado são propriedade da BACKLAB TECNOLOGIA LTDA. Não é permitido copiar, modificar ou distribuir o nosso serviço sem a nossa autorização expressa.</p>
-                </div>
-
-                <div>
-                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">5. Alterações nos Termos</h2>
-                    <p>Podemos atualizar estes Termos de Uso periodicamente. A versão mais recente estará sempre disponível no nosso site. O uso continuado do serviço após qualquer alteração constitui a sua aceitação dos novos termos.</p>
-                </div>
-                
-                <div>
-                    <h2 class="text-2xl font-bold text-fastgas-brown mb-3">6. Legislação Aplicável</h2>
-                    <p>Estes termos são regidos pelas leis da República Federativa do Brasil.</p>
-                </div>
-
-                <p class="pt-4 border-t border-gray-200">Se tiver alguma dúvida sobre estes termos, por favor, entre em contacto connosco através do e-mail: <strong>contato@fastgas.com.br</strong>.</p>
-            </div>
+        <div class="foot-col">
+          <h6>Contato</h6>
+          <a href="https://wa.me/c/554831970675" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="#" onclick="event.preventDefault()">Instagram</a>
+          <a href="mailto:contato@fastgas.com.br">contato@fastgas.com.br</a>
         </div>
-    </main>
-
-    <!-- Rodapé -->
-    <footer class="bg-fastgas-brown text-white py-10 mt-12">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2025 BACKLAB TECNOLOGIA LTDA. Todos os direitos reservados.</p>
+        <div class="foot-col">
+          <h6>Empresa</h6>
+          <a href="distribuitor.html">Para distribuidoras</a>
+          <a href="privacy-policy.html">Política de privacidade</a>
+          <a href="terms-of-use.html">Termos de uso</a>
         </div>
-    </footer>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Fastgas · fastgas.com.br</span>
+      <span>Florianópolis · Santa Catarina</span>
+    </div>
+    <div class="foot-legal">
+      Fastgas é um produto da BACKLAB TECNOLOGIA LTDA · CNPJ 51.694.798/0001-50 · Florianópolis – SC · contato@fastgas.com.br
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

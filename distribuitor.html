@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fastgas — Pedidos de gás direto no seu WhatsApp</title>
+<meta name="description" content="Receba pedidos de gás de cozinha e galão de água automaticamente no WhatsApp. Primeiro mês grátis. R$ 89/mês depois — menos de R$ 1 por pedido." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIxMDI0IiB2aWV3Qm94PSIwIDAgMTAyNCAxMDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIxMDI0IiBmaWxsPSIjMUUxRTFFIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjEwMjQiIGZpbGw9IiNGRkM1MzMiPjwvcmVjdD4KPHJlY3QgeD0iMjY5Ljk0NiIgeT0iMTc2LjkzNSIgd2lkdGg9IjU3Ny4xMjYiIGhlaWdodD0iNTcxLjQ4NSIgcng9IjEwOSIgdHJhbnNmb3JtPSJyb3RhdGUoNi45NTIwMiAyNjkuOTQ2IDE3Ni45MzUpIiBmaWxsPSIjMzMzMzMzIj48L3JlY3Q+CjxyZWN0IHg9IjQzNiIgeT0iMTc1IiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjkwIiByeD0iMTYiIGZpbGw9IiMzMzMzMzMiPjwvcmVjdD4KPHJlY3QgeD0iMzM5IiB5PSI3NTUiIHdpZHRoPSIzMDEiIGhlaWdodD0iNjIiIHJ4PSIxNiIgZmlsbD0iIzMzMzMzMyI+PC9yZWN0Pgo8cGF0aCBkPSJNODY2Ljk2MiAxODRMMzIzLjQ1IDQ0Ny45ODFMNTA2Ljc4NCA1MzEuNzU5TDE1Ny45NjIgODQwTDcyMC45NDQgNTIwLjY5NEw1NTAuNTg5IDQ0Ny45ODFMODY2Ljk2MiAxODRaIiBmaWxsPSIjRkZDNTMzIiBzdHJva2U9IiNGRkM1MzMiPjwvcGF0aD4KPC9zdmc+" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFB800;
+    --yellow-bright: #FFC533;
+    --ink: #1F1F1F;
+    --ink-2: #2B2B2B;
+    --ink-3: #333333;
+    --ink-soft: #4A4A4A;
+    --line: rgba(255, 255, 255, 0.08);
+    --line-strong: rgba(255, 255, 255, 0.14);
+    --mute: #8A8A8A;
+    --paper: #F4F2EE;
+    --paper-2: #ECE9E3;
+    --white: #FFFFFF;
+    --green-wa: #25D366;
+    --display: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --body: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--body);
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.5;
+  }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; }
+
+  .container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* --- NAV --- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(31, 31, 31, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    color: var(--white);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo img {
+    height: 36px;
+    width: auto;
+    display: block;
+    border-radius: 8px;
+  }
+  .nav-right { display: flex; align-items: center; gap: 12px; }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 42px;
+    padding: 0 18px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    color: var(--white);
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all .2s ease;
+    background: transparent;
+  }
+  .btn-outline:hover {
+    border-color: var(--yellow);
+    color: var(--yellow);
+  }
+
+  /* --- HERO --- */
+  .hero {
+    background: var(--ink);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+    padding: 64px 0 96px;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at 30% 30%, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at 30% 30%, black 30%, transparent 75%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--yellow);
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border: 1px solid rgba(255,184,0,0.25);
+    border-radius: 999px;
+    background: rgba(255,184,0,0.06);
+  }
+  .eyebrow .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--yellow);
+    box-shadow: 0 0 0 4px rgba(255,184,0,0.18);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(255,184,0,0.18); }
+    50%      { box-shadow: 0 0 0 8px rgba(255,184,0,0); }
+  }
+  h1.hero-title {
+    font-family: var(--display);
+    font-size: clamp(40px, 5vw, 54px);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    margin: 0 0 24px;
+    font-weight: 800;
+  }
+  h1.hero-title em {
+    font-style: normal;
+    color: var(--green-wa);
+    font-weight: 800;
+  }
+  .hero-sub {
+    font-size: 22px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.72);
+    max-width: 540px;
+    line-height: 1.5;
+    margin-bottom: 36px;
+  }
+  .hero-cta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    height: 60px;
+    padding: 0 28px;
+    background: var(--yellow);
+    color: var(--ink);
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: -0.005em;
+    transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+    box-shadow: 0 12px 32px -8px rgba(255,184,0,0.45);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    background: var(--yellow-bright);
+    box-shadow: 0 18px 40px -8px rgba(255,184,0,0.6);
+  }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-primary svg { width: 22px; height: 22px; color: var(--ink); flex-shrink: 0; }
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+  }
+  .hero-meta .check {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: rgba(255,184,0,0.15);
+    display: grid; place-items: center;
+    color: var(--yellow);
+  }
+  .hero-meta .check svg { width: 11px; height: 11px; }
+
+  /* WhatsApp phone mock */
+  .phone-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    perspective: 1200px;
+  }
+  .phone {
+    width: 330px;
+    background: #0B141A;
+    border-radius: 38px;
+    padding: 12px;
+    box-shadow:
+      0 40px 80px -20px rgba(0,0,0,0.6),
+      0 0 0 1px rgba(255,255,255,0.05),
+      inset 0 0 0 1px rgba(255,255,255,0.04);
+    transform: rotate(-2deg);
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  .phone-screen {
+    background: #E5DDD5;
+    border-radius: 26px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    flex-direction: column;
+    height: 560px;
+  }
+  .wa-header {
+    background: #075E54;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .wa-header .wa-back {
+    color: #fff;
+    opacity: 0.95;
+    flex-shrink: 0;
+    display: grid; place-items: center;
+  }
+  .wa-header .wa-back svg { width: 18px; height: 18px; }
+  .wa-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: #FFC533;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: grid; place-items: center;
+  }
+  .wa-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .wa-contact { flex: 1; min-width: 0; line-height: 1.1; }
+  .wa-name {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .wa-status {
+    color: rgba(255,255,255,0.75);
+    font-size: 12px;
+    font-family: inherit;
+    margin-top: 2px;
+  }
+  .wa-icons {
+    display: flex; gap: 14px;
+    color: #fff;
+    opacity: 0.95;
+    flex-shrink: 0;
+  }
+  .wa-icons svg { width: 18px; height: 18px; }
+  .wa-icons .wa-menu svg { width: 4px; height: 18px; }
+
+  .wa-body {
+    flex: 1;
+    padding: 16px 8px 8px;
+    background-color: #E5DDD5;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><g fill='%23d4ccc0' opacity='0.45'><circle cx='10' cy='12' r='1'/><circle cx='42' cy='8' r='0.8'/><circle cx='28' cy='30' r='1'/><circle cx='50' cy='38' r='0.7'/><circle cx='14' cy='48' r='0.9'/><path d='M5 25l3 1-1 3z' opacity='0.5'/><path d='M38 50l2.5 0.8-0.8 2.5z' opacity='0.5'/></g></svg>");
+    background-size: 120px 120px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    color: #111B21;
+  }
+  .wa-date {
+    align-self: center;
+    background: rgba(225, 245, 254, 0.92);
+    color: #54656F;
+    font-size: 11.5px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 0.5px rgba(0,0,0,0.08);
+    margin: 4px 0 8px;
+  }
+
+  .msg {
+    max-width: 78%;
+    padding: 6px 8px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1.35;
+    position: relative;
+    box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+    word-wrap: break-word;
+  }
+  .msg.in {
+    background: #FFFFFF;
+    color: #111B21;
+    align-self: flex-start;
+    border-top-left-radius: 0;
+    margin-left: 4px;
+    padding-right: 50px;
+  }
+  .msg.out {
+    background: #DCF8C6;
+    color: #111B21;
+    align-self: flex-end;
+    border-top-right-radius: 0;
+    margin-right: 4px;
+    padding-right: 56px;
+  }
+  .msg .time {
+    position: absolute;
+    right: 8px;
+    bottom: 4px;
+    font-size: 10.5px;
+    color: rgba(0,0,0,0.45);
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    line-height: 1;
+  }
+  .msg .time .checks { color: #34B7F1; font-size: 12px; letter-spacing: -2px; }
+
+  /* Template (order notification) */
+  .msg.template {
+    padding: 0;
+    background: #FFFFFF;
+    width: 86%;
+    max-width: 86%;
+    overflow: hidden;
+    align-self: flex-start;
+    margin-left: 4px;
+  }
+  .tpl-head {
+    padding: 8px 10px 4px;
+    font-weight: 600;
+    color: #111B21;
+    font-size: 14.5px;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+  .tpl-body {
+    padding: 8px 10px 10px;
+    font-size: 13.5px;
+    color: #111B21;
+    line-height: 1.55;
+    position: relative;
+  }
+  .tpl-body .item { display: block; }
+  .tpl-body .meta { margin-top: 6px; color: #3B4A54; font-size: 13px; }
+  .tpl-body .tpl-time {
+    position: absolute;
+    bottom: 4px; right: 8px;
+    font-size: 10.5px;
+    color: rgba(0,0,0,0.45);
+  }
+  .tpl-divider {
+    height: 1px;
+    background: rgba(0,0,0,0.08);
+    margin: 0;
+  }
+  .tpl-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 11px 10px;
+    background: #ffffff;
+    color: #00A884;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    text-transform: none;
+  }
+  .tpl-btn:hover { background: #F5F6F6; }
+  .tpl-btn svg { width: 16px; height: 16px; }
+  .tpl-tag {
+    position: absolute;
+    top: -14px; left: 0;
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--yellow);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* WhatsApp location bubble */
+  .wa-location {
+    background: #fff;
+    align-self: flex-start;
+    margin-left: 4px;
+    border-radius: 8px;
+    border-top-left-radius: 0;
+    box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+    width: 72%;
+    overflow: hidden;
+    position: relative;
+  }
+  .loc-map {
+    width: 100%;
+    height: 108px;
+    background: #C8DAEA;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.22) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.22) 1px, transparent 1px),
+      linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
+    background-size: 36px 36px, 36px 36px, 9px 9px, 9px 9px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .loc-info {
+    padding: 8px 10px 18px;
+    position: relative;
+  }
+  .loc-name {
+    font-size: 13.5px; font-weight: 600; color: #111B21; margin-bottom: 2px;
+  }
+  .loc-addr {
+    font-size: 12px; color: #54656F; line-height: 1.45;
+  }
+  .loc-time {
+    position: absolute; right: 8px; bottom: 4px;
+    font-size: 10.5px; color: rgba(0,0,0,0.45);
+  }
+
+  .map-link {
+    color: #027EB5;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* Input bar */
+  .wa-input {
+    flex-shrink: 0;
+    padding: 6px 8px 8px;
+    background: #E5DDD5;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .wa-input .pill {
+    flex: 1;
+    height: 38px;
+    background: #fff;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 10px 0 12px;
+    color: #8696A0;
+    font-size: 13px;
+    box-shadow: 0 1px 0.5px rgba(0,0,0,0.08);
+  }
+  .wa-input .pill .emoji { color: #54656F; display: grid; place-items: center; }
+  .wa-input .pill .field { flex: 1; }
+  .wa-input .pill .clip, .wa-input .pill .cam {
+    color: #54656F; display: grid; place-items: center;
+  }
+  .wa-input .send {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: #075E54;
+    color: #fff;
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .wa-input svg { width: 18px; height: 18px; }
+
+  .floating-ping {
+    position: absolute;
+    top: 12%; right: -8%;
+    background: var(--ink-3);
+    border: 1px solid var(--line-strong);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--white);
+    display: flex; align-items: center; gap: 10px;
+    box-shadow: 0 20px 40px -15px rgba(0,0,0,0.6);
+    transform: rotate(3deg);
+    animation: bob 4s ease-in-out infinite;
+  }
+  .floating-ping .ico {
+    width: 22px; height: 22px;
+    background: var(--yellow);
+    color: var(--ink);
+    border-radius: 6px;
+    display: grid; place-items: center;
+    font-weight: 700;
+  }
+  @keyframes bob {
+    0%, 100% { transform: rotate(3deg) translateY(0); }
+    50% { transform: rotate(3deg) translateY(-8px); }
+  }
+
+  /* --- PRICING --- */
+  .pricing { background: var(--paper); }
+  .price-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .price-card {
+    background: var(--ink);
+    color: var(--white);
+    border-radius: 24px;
+    padding: 40px 40px 36px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .price-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 100% 0%, rgba(255,184,0,0.18), transparent 45%),
+      radial-gradient(circle at 0% 100%, rgba(255,184,0,0.08), transparent 50%);
+    pointer-events: none;
+  }
+  .price-card > * { position: relative; z-index: 1; }
+  .price-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--yellow);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 999px;
+    align-self: flex-start;
+  }
+  .price-title {
+    font-family: var(--display);
+    font-size: 44px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+    margin: 24px 0 12px;
+    text-wrap: balance;
+  }
+  .price-lead {
+    color: rgba(255,255,255,0.65);
+    font-size: 16px;
+    line-height: 1.55;
+    max-width: 440px;
+    margin: 0 0 32px;
+  }
+  .price-amount {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin: 0 0 8px;
+    flex-wrap: wrap;
+  }
+  .price-amount .num {
+    font-family: var(--display);
+    font-size: 72px;
+    font-weight: 600;
+    color: var(--yellow);
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+  }
+  .price-amount .num small {
+    font-size: 32px;
+    font-weight: 500;
+    vertical-align: top;
+    margin-right: 4px;
+  }
+  .price-amount .per {
+    color: rgba(255,255,255,0.6);
+    font-size: 16px;
+  }
+  .price-strike {
+    text-decoration: line-through;
+    color: rgba(255,255,255,0.4);
+    margin-right: 8px;
+  }
+  .price-equiv {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--yellow);
+    margin: 0 0 28px;
+  }
+  .price-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .price-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+  }
+  .price-list li .pcheck {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: rgba(255,184,0,0.15);
+    color: var(--yellow);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .price-list li .pcheck svg { width: 12px; height: 12px; }
+
+  .price-side {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .price-feature {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 20px;
+    padding: 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .price-feature h4 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 22px;
+    margin: 0 0 8px;
+    letter-spacing: -0.015em;
+  }
+  .price-feature p {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    margin: 0;
+    line-height: 1.55;
+  }
+  .price-feature .pf-num {
+    font-family: var(--display);
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .price-feature .pf-num .y { color: var(--yellow); }
+  .price-feature.yellow {
+    background: var(--yellow);
+    border-color: transparent;
+  }
+  .price-feature.yellow p { color: rgba(31,31,31,0.75); }
+
+  /* --- SECTION SHELL --- */
+  section { padding: 110px 0; position: relative; }
+  .section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 56px;
+  }
+  .section-tag {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-tag::before {
+    content: ""; width: 28px; height: 1px; background: var(--ink);
+  }
+  h2 {
+    font-family: var(--display);
+    font-size: clamp(36px, 4.2vw, 42px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin: 12px 0 0;
+    font-weight: 700;
+    max-width: 720px;
+    text-wrap: balance;
+  }
+  .section-lead {
+    color: var(--ink-soft);
+    font-size: 18px;
+    max-width: 380px;
+    line-height: 1.55;
+  }
+
+  /* --- HOW IT WORKS --- */
+  .how { background: var(--paper); }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    position: relative;
+  }
+  .steps::before {
+    content: "";
+    position: absolute;
+    top: 56px;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, var(--ink) 0 6px, transparent 6px 12px);
+    opacity: 0.25;
+    z-index: 0;
+  }
+  .step {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 20px;
+    padding: 36px 28px 32px;
+    position: relative;
+    transition: transform .25s ease, box-shadow .25s ease;
+    z-index: 1;
+  }
+  .step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -20px rgba(0,0,0,0.15);
+  }
+  .step-num {
+    width: 64px; height: 64px;
+    border-radius: 16px;
+    background: var(--ink);
+    color: var(--yellow);
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 28px;
+    display: grid; place-items: center;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .step-num::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border: 1px dashed rgba(31,31,31,0.2);
+    border-radius: 20px;
+  }
+  .step h3 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    margin: 0 0 10px;
+    line-height: 1.15;
+  }
+  .step p {
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin: 0;
+    line-height: 1.55;
+  }
+  .step-icon {
+    position: absolute;
+    top: 36px; right: 28px;
+    width: 28px; height: 28px;
+    color: var(--ink);
+    opacity: 0.35;
+  }
+
+  /* --- BENEFITS --- */
+  .benefits {
+    background: var(--ink);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .benefits .section-tag { color: rgba(255,255,255,0.6); }
+  .benefits .section-tag::before { background: rgba(255,255,255,0.4); }
+  .benefits h2 { color: var(--white); }
+  .benefits .section-lead { color: rgba(255,255,255,0.6); }
+
+  .bgrid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+  }
+  .bcard {
+    background: var(--ink-2);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 32px;
+    transition: background .25s ease, border-color .25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .bcard:hover {
+    background: var(--ink-3);
+    border-color: var(--line-strong);
+  }
+  .bcard .big {
+    font-family: var(--display);
+    font-size: 64px;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--yellow);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .bcard .big .unit {
+    font-size: 22px;
+    color: rgba(255,255,255,0.55);
+    font-family: var(--body);
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+  .bcard h3 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 20px;
+    margin: 0 0 8px;
+    letter-spacing: -0.015em;
+  }
+  .bcard p {
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .b-wide { grid-column: span 6; }
+  .b-third { grid-column: span 3; }
+  .b-half { grid-column: span 6; }
+
+  .compare {
+    grid-column: span 6;
+    background: var(--ink-2);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+  .compare-col h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+    color: var(--mute);
+  }
+  .compare-col ul { list-style: none; padding: 0; margin: 0; }
+  .compare-col li {
+    font-size: 14px;
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255,255,255,0.85);
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-col li:last-child { border: none; }
+  .compare-col li .x { color: #FF6B6B; font-weight: 700; }
+  .compare-col li .ch { color: var(--yellow); font-weight: 700; }
+  .compare-vs {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    color: var(--mute);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+  }
+  .compare .winner { background: rgba(255,184,0,0.04); padding: 16px; border-radius: 12px; border: 1px solid rgba(255,184,0,0.15); }
+
+  /* --- OBJECTIONS --- */
+  .obj { background: var(--paper-2); }
+  .obj-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    max-width: 980px;
+  }
+  .obj-item {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color .2s ease;
+  }
+  .obj-item:hover { border-color: rgba(0,0,0,0.12); }
+  .obj-item.open { border-color: var(--ink); }
+  .obj-q {
+    width: 100%;
+    background: transparent;
+    border: none;
+    text-align: left;
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+  }
+  .obj-q .qnum {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--mute);
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .obj-q .qtxt { flex: 1; }
+  .obj-toggle {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--yellow);
+    display: grid; place-items: center;
+    transition: transform .25s ease;
+    flex-shrink: 0;
+  }
+  .obj-item.open .obj-toggle { transform: rotate(45deg); }
+  .obj-toggle svg { width: 14px; height: 14px; }
+  .obj-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease;
+  }
+  .obj-a-inner {
+    padding: 0 28px 28px 76px;
+    color: var(--ink-soft);
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 720px;
+  }
+  .obj-a-inner strong { color: var(--ink); font-weight: 600; }
+
+  /* --- CTA --- */
+  .cta {
+    background: var(--yellow);
+    color: var(--ink);
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0;
+  }
+  .cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(31,31,31,0.04) 0 1px, transparent 1px 18px);
+    pointer-events: none;
+  }
+  .cta-inner {
+    position: relative;
+    text-align: center;
+  }
+  .cta h2 {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 800;
+    line-height: 1.02;
+    margin: 0 auto 24px;
+    max-width: 900px;
+    color: var(--ink);
+  }
+  .cta-lead {
+    font-size: 19px;
+    max-width: 580px;
+    margin: 0 auto 48px;
+    color: rgba(31,31,31,0.75);
+  }
+  .btn-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    height: 72px;
+    padding: 0 36px;
+    background: var(--ink);
+    color: var(--white);
+    border: none;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: -0.005em;
+    transition: transform .15s ease, box-shadow .2s ease;
+    box-shadow: 0 16px 40px -12px rgba(0,0,0,0.5);
+    text-decoration: none;
+  }
+  .btn-wa:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 50px -12px rgba(0,0,0,0.6);
+  }
+  .btn-wa svg { width: 22px; height: 22px; color: #25D366; flex-shrink: 0; }
+  .cta-mini {
+    margin-top: 24px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: rgba(31,31,31,0.6);
+    text-transform: uppercase;
+  }
+
+  /* --- FOOTER --- */
+  footer {
+    background: var(--paper);
+    border-top: 1px solid var(--paper-2);
+    padding: 56px 0 32px;
+  }
+  .foot-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .foot-left { max-width: 280px; }
+  .foot-left p {
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin: 20px 0 0;
+    line-height: 1.55;
+  }
+  .foot-links {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 36px 56px;
+    font-size: 14px;
+  }
+  .foot-col h6 {
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin: 0 0 14px;
+  }
+  .foot-col a {
+    display: block;
+    color: var(--ink-soft);
+    padding: 5px 0;
+    transition: color .15s ease;
+  }
+  .foot-col a:hover { color: var(--ink); }
+  .foot-bottom {
+    border-top: 1px solid var(--paper-2);
+    margin-top: 48px;
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+    color: var(--mute);
+  }
+  .foot-legal {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--paper-2);
+    font-size: 11.5px;
+    color: var(--mute);
+    line-height: 1.6;
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 960px) {
+    section { padding: 80px 0; }
+    .hero { padding: 48px 0 72px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 56px; }
+    .phone-stage { order: -1; min-height: auto; }
+    .section-head { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .steps { grid-template-columns: 1fr; }
+    .steps::before { display: none; }
+    .bgrid { grid-template-columns: 1fr; }
+    .b-wide, .b-third, .b-half, .compare { grid-column: span 1; }
+    .compare { grid-template-columns: 1fr; }
+    .compare-vs {
+      writing-mode: horizontal-tb;
+      transform: none;
+      text-align: center;
+      padding: 8px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .obj-q { font-size: 17px; padding: 20px; gap: 16px; }
+    .obj-a-inner { padding: 0 20px 22px 20px; font-size: 15px; }
+    .price-grid { grid-template-columns: 1fr; }
+    .price-card { padding: 32px 28px; }
+    .price-title { font-size: 34px; }
+    .price-amount .num { font-size: 58px; }
+    .cta { padding: 80px 0; }
+    .btn-wa { height: 62px; padding: 0 24px; font-size: 16px; }
+    .foot-grid { flex-direction: column; gap: 32px; }
+    .foot-links { grid-template-columns: repeat(2, auto); gap: 28px 40px; }
+  }
+  @media (max-width: 520px) {
+    .nav-inner { height: 64px; }
+    .btn-outline { height: 38px; padding: 0 14px; font-size: 13px; }
+    .phone { width: 300px; }
+    .phone-screen { height: 640px; }
+    .float.f1, .float.f2 { display: none; }
+    h1.hero-title { font-size: 40px; }
+    .btn-primary { height: 56px; font-size: 15px; padding: 0 22px; }
+    .step { padding: 28px 22px; }
+    .bcard { padding: 24px; }
+    .bcard .big { font-size: 48px; }
+  }
+
+  /* --- MODAL --- */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity .25s ease;
+  }
+  .modal-overlay.active { opacity: 1; pointer-events: auto; }
+  .modal-card {
+    background: var(--ink);
+    border: 1px solid var(--line-strong);
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 480px;
+    width: calc(100% - 40px);
+    position: relative;
+    transform: translateY(16px) scale(0.97);
+    transition: transform .3s ease;
+    color: var(--white);
+  }
+  .modal-overlay.active .modal-card { transform: translateY(0) scale(1); }
+  .modal-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--yellow);
+    padding: 5px 12px; border: 1px solid rgba(255,184,0,0.25);
+    border-radius: 999px; margin-bottom: 20px;
+  }
+  .modal-title {
+    font-family: var(--display); font-size: 28px; font-weight: 600;
+    letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 12px;
+    color: var(--white);
+  }
+  .modal-body {
+    font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.6; margin: 0 0 16px;
+  }
+  .modal-close {
+    position: absolute; top: 20px; right: 20px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(255,255,255,0.08); border: none;
+    color: rgba(255,255,255,0.6); display: grid; place-items: center;
+    cursor: pointer; transition: background .2s ease, color .2s ease;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.14); color: #fff; }
+  .modal-close svg { width: 14px; height: 14px; }
+
+  /* reveal on scroll */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  [data-reveal].in { opacity: 1; transform: translateY(0); }
+
+  /* --- PHONE (copied from customer) --- */
+  .phone-stage {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 760px;
+    pointer-events: none;
+    user-select: none;
+  }
+  .phone {
+    width: 340px;
+    background: #1a1a1c;
+    border-radius: 52px;
+    padding: 8px;
+    box-shadow:
+      0 0 0 2px #2c2c2e,
+      0 0 0 3px #0a0a0a,
+      0 40px 80px -20px rgba(0,0,0,0.18), 0 16px 32px -12px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 2;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    transform: none;
+  }
+  .phone::before {
+    content: "";
+    position: absolute;
+    left: -3px;
+    top: 110px;
+    width: 3px;
+    height: 32px;
+    background: #2c2c2e;
+    border-radius: 2px 0 0 2px;
+    box-shadow: 0 50px 0 #2c2c2e, 0 96px 0 #2c2c2e;
+  }
+  .phone::after {
+    content: "";
+    position: absolute;
+    right: -3px;
+    top: 140px;
+    width: 3px;
+    height: 56px;
+    background: #2c2c2e;
+    border-radius: 0 2px 2px 0;
+  }
+  .phone-screen {
+    background: #E5DDD5;
+    border-radius: 44px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 720px;
+    position: relative;
+    border: none;
+  }
+  .island {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 116px;
+    height: 34px;
+    background: #000;
+    border-radius: 22px;
+    z-index: 10;
+  }
+  .home-bar {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 134px;
+    height: 5px;
+    background: #111;
+    border-radius: 3px;
+    opacity: 0.55;
+    z-index: 10;
+  }
+  .status-bar {
+    background: #075E54;
+    color: #fff;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 28px 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    font-family: var(--body);
+  }
+  .status-bar .icons { display: flex; align-items: center; gap: 5px; }
+  .wa-head {
+    background: #075E54;
+    color: #fff;
+    padding: 6px 12px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .wa-back { display: grid; place-items: center; opacity: 0.95; }
+  .wa-back svg { width: 18px; height: 18px; }
+  .wa-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--yellow-bright);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .wa-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .wa-name { font-size: 15px; font-weight: 500; line-height: 1.1; color: #fff; }
+  .wa-status { font-size: 12px; color: rgba(255,255,255,0.78); margin-top: 2px; }
+  .wa-icons-h { margin-left: auto; display: flex; gap: 18px; opacity: 0.95; }
+  .wa-icons-h svg { width: 18px; height: 18px; }
+  .wa-chat {
+    flex: 1;
+    background-color: #E5DDD5;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><g fill='%23d4ccc0' opacity='0.45'><circle cx='10' cy='12' r='1'/><circle cx='42' cy='8' r='0.8'/><circle cx='28' cy='30' r='1'/><circle cx='50' cy='38' r='0.7'/><circle cx='14' cy='48' r='0.9'/></g></svg>");
+    padding: 14px 8px 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 8px;
+    font-size: 14px;
+    color: #111B21;
+  }
+  .wa-chat > * { flex-shrink: 0; }
+  .day {
+    align-self: center;
+    background: rgba(225,245,254,0.92);
+    color: #54656F;
+    font-size: 11.5px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    margin: 4px 0;
+  }
+  .cat-order {
+    background: #DCF8C6;
+    align-self: flex-end;
+    margin-right: 4px;
+    border-radius: 8px;
+    border-top-right-radius: 0;
+    box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+    width: 82%;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+  }
+  .cat-order-label { padding: 8px 10px 4px; font-size: 11.5px; color: rgba(0,0,0,0.55); font-weight: 500; }
+  .cat-order-row { padding: 0 10px 6px; display: flex; gap: 10px; align-items: center; }
+  .cat-thumb {
+    width: 64px; height: 64px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #BFE4FF, #6EC1F2);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+    color: rgba(31,31,31,0.85);
+    overflow: hidden;
+  }
+  .cat-thumb svg { width: 38px; height: 38px; }
+  .cat-order-info { flex: 1; min-width: 0; padding-bottom: 6px; }
+  .cat-order-items { font-size: 14px; font-weight: 600; color: #111B21; margin-bottom: 2px; display: flex; align-items: center; gap: 6px; }
+  .cat-order-items .bag { color: #54656F; display: inline-flex; }
+  .cat-order-items .bag svg { width: 14px; height: 14px; }
+  .cat-order-total { font-size: 12.5px; color: rgba(0,0,0,0.7); }
+  .cat-order-total b { font-weight: 700; color: #111B21; margin-right: 4px; }
+  .cat-order .t { display: block; text-align: right; padding: 0 10px 6px; font-size: 10.5px; color: rgba(0,0,0,0.45); }
+  .cat-order .t .checks { color: #34B7F1; font-size: 12px; letter-spacing: -2px; }
+  .msg-divider { height: 1px; background: rgba(0,0,0,0.08); }
+  .msg-action {
+    width: 100%; padding: 10px;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    color: #00A884; font-weight: 500; font-size: 13.5px;
+    background: transparent; border: none; cursor: pointer; font-family: inherit; text-align: center;
+  }
+  .msg-action svg { width: 14px; height: 14px; }
+  .msg-action.dim { color: rgba(0,0,0,0.55); }
+  .order-recv {
+    background: #fff; align-self: flex-start; margin-left: 4px;
+    border-radius: 8px; border-top-left-radius: 0;
+    box-shadow: 0 1px 0.5px rgba(0,0,0,0.13); width: 76%; overflow: hidden; position: relative;
+  }
+  .order-recv .head { padding: 10px 12px 2px; font-size: 14px; font-weight: 700; color: #111B21; display: flex; align-items: center; gap: 6px; }
+  .order-recv .body { padding: 0 12px 16px; font-size: 13.5px; color: #3B4A54; position: relative; }
+  .order-recv .body .t { position: absolute; right: 12px; bottom: -2px; font-size: 10.5px; color: rgba(0,0,0,0.45); }
+  .order-accepted {
+    background: #fff; align-self: flex-start; margin-left: 4px;
+    border-radius: 8px; border-top-left-radius: 0;
+    box-shadow: 0 1px 0.5px rgba(0,0,0,0.13); width: 82%; overflow: hidden; position: relative;
+  }
+  .order-accepted .quote { margin: 8px 10px 6px; padding: 6px 10px; background: rgba(255,197,51,0.10); border-left: 3px solid #FFC533; border-radius: 4px; font-size: 12.5px; color: rgba(0,0,0,0.65); font-weight: 500; }
+  .order-accepted .ack { padding: 0 12px; font-size: 13.5px; color: #111B21; line-height: 1.45; margin: 2px 0 10px; display: flex; gap: 8px; align-items: flex-start; }
+  .order-accepted .ack .ok { width: 18px; height: 18px; background: #18A957; color: #fff; border-radius: 4px; display: grid; place-items: center; flex-shrink: 0; margin-top: 1px; }
+  .order-accepted .ack .ok svg { width: 11px; height: 11px; }
+  .order-accepted .eta { padding: 0 12px 6px; font-size: 13.5px; color: #111B21; }
+  .order-accepted .eta u { text-decoration: underline; text-decoration-color: #00A884; text-underline-offset: 2px; color: #00A884; font-weight: 600; }
+  .order-accepted .hint { padding: 0 12px 14px; font-size: 12px; color: rgba(0,0,0,0.5); position: relative; }
+  .order-accepted .hint .t { position: absolute; right: 12px; bottom: 0; font-size: 10.5px; color: rgba(0,0,0,0.45); }
+  .wa-input {
+    background: #E5DDD5;
+    padding: 6px 8px 10px;
+    display: flex; align-items: center; gap: 6px;
+    flex-shrink: 0;
+  }
+  .wa-input .pill {
+    flex: 1; height: 38px; background: #fff; border-radius: 22px;
+    display: flex; align-items: center; gap: 8px; padding: 0 10px 0 12px;
+    color: #8696A0; font-size: 13px; box-shadow: 0 1px 0.5px rgba(0,0,0,0.08);
+  }
+  .wa-input svg { width: 18px; height: 18px; color: #54656F; }
+  .wa-input .send { width: 38px; height: 38px; background: #075E54; color: #fff; border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; }
+  .wa-input .send svg { color: #fff; }
+  .float {
+    position: absolute;
+    border-radius: 16px;
+    padding: 12px 16px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    pointer-events: none;
+  }
+  .float.f1 {
+    top: 22%; left: -10%;
+    background: var(--ink-2);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 24px 48px -12px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.04);
+    animation: bob 5s ease-in-out infinite;
+  }
+  .float-ico {
+    width: 34px; height: 34px; border-radius: 10px;
+    display: grid; place-items: center; flex-shrink: 0;
+  }
+  .float-ico.wa  { background: rgba(37,211,102,0.12); color: #25D366; }
+  .float-ico.chk { background: var(--yellow-bright);  color: var(--ink); }
+  .float-ico svg { width: 17px; height: 17px; }
+  .float-lbl {
+    font-size: 12.5px; font-weight: 600; line-height: 1.25;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .float-lbl.dk { color: rgba(255,255,255,0.92); }
+  .float-lbl.lt { color: var(--ink); }
+  .float-sub { font-size: 10.5px; font-weight: 500; margin-top: 3px; line-height: 1; }
+  .float-sub.dk { color: rgba(255,255,255,0.4); }
+  .float-sub.lt { color: rgba(31,31,31,0.42); }
+  .float-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #25D366; flex-shrink: 0;
+    box-shadow: 0 0 0 3px rgba(37,211,102,0.2);
+    animation: wa-ping 2s ease-in-out infinite;
+  }
+  @keyframes wa-ping {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(37,211,102,0.2); }
+    50%       { box-shadow: 0 0 0 7px rgba(37,211,102,0); }
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo" aria-label="Fastgas">
+      <img src="logo.svg" alt="Fastgas" />
+    </a>
+    <div class="nav-right">
+      <button type="button" class="btn-outline" aria-label="Login do Distribuidor">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><path d="M10 17l5-5-5-5M15 12H3"/></svg>
+        Login do Distribuidor
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1 class="hero-title">Seu <em>WhatsApp</em> recebe<br>pedidos de gás<br>automaticamente</h1>
+      <p class="hero-sub">Receba pedidos diretamente no WhatsApp e aceite com um toque. Sem aplicativos extras ou sistemas complicados.</p>
+      <div class="hero-cta">
+        <a href="https://wa.me/5515996993842?text=Ol%C3%A1!%20Tenho%20interesse%20em%20cadastrar%20minha%20distribuidora%20na%20Fastgas." class="btn-primary" target="_blank" rel="noopener">
+          <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.3.7 4.4 1.8 6.2L4 29l8-2c1.7.9 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm6.6 16.7c-.3.8-1.6 1.5-2.3 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.7-5.7-4.9-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.7-.4 1-.4h.7c.2 0 .5-.1.8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.5.6-.2.2-.4.4-.2.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.8.3.1.5.1.7-.1.2-.2.8-1 1-1.3.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1 .3.2.6.2.6.4.1.2.1.9-.3 1.7z"/></svg>
+          Quero ser parceiro
+        </a>
+      </div>
+    </div>
+
+    <!-- Phone -->
+    <div class="phone-stage" aria-hidden="true">
+      <div class="float f1">
+        <span class="float-ico wa">
+          <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.3.7 4.4 1.8 6.2L4 29l8-2c1.7.9 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm6.6 16.7c-.3.8-1.6 1.5-2.3 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.7-5.7-4.9-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.7-.4 1-.4h.7c.2 0 .5-.1.8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.5.6-.2.2-.4.4-.2.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.8.3.1.5.1.7-.1.2-.2.8-1 1-1.3.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1 .3.2.6.2.6.4.1.2.1.9-.3 1.7z"/></svg>
+        </span>
+        <div>
+          <div class="float-lbl dk"><span class="float-dot"></span>Novo pedido recebido</div>
+          <div class="float-sub dk">09:27 · Ingleses, Floripa</div>
+        </div>
+      </div>
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="island"></div>
+          <div class="home-bar"></div>
+          <div class="status-bar">
+            <span>9:41</span>
+            <div class="icons">
+              <svg width="16" height="11" viewBox="0 0 16 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="0.5"/><rect x="4" y="5" width="3" height="6" rx="0.5"/><rect x="8" y="3" width="3" height="8" rx="0.5"/><rect x="12" y="0" width="3" height="11" rx="0.5"/></svg>
+              <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor"><path d="M7.5 0a10 10 0 016.5 2.5l-1.3 1.3a8 8 0 00-10.4 0L1 2.5A10 10 0 017.5 0zm0 3.5a6.5 6.5 0 014.3 1.6l-1.3 1.3a4.5 4.5 0 00-6 0L3.2 5.1a6.5 6.5 0 014.3-1.6zm0 3.5a3 3 0 012 .8L7.5 9.7 5.5 7.8a3 3 0 012-.8z"/></svg>
+              <svg width="26" height="12" viewBox="0 0 26 12" fill="none"><rect x="0.5" y="0.5" width="22" height="11" rx="3" stroke="currentColor" opacity="0.5"/><rect x="2.5" y="2.5" width="17" height="7" rx="1.5" fill="currentColor"/><rect x="23.5" y="4" width="2" height="4" rx="0.6" fill="currentColor"/></svg>
+            </div>
+          </div>
+          <div class="wa-head">
+            <span class="wa-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
+            <div class="wa-avatar"><img src="logo.svg" alt="" /></div>
+            <div>
+              <div class="wa-name">Fastgas</div>
+              <div class="wa-status">online · conta comercial</div>
+            </div>
+            <div class="wa-icons-h">
+              <span aria-label="Catálogo" title="Catálogo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              </span>
+              <svg viewBox="0 0 4 18" fill="currentColor"><circle cx="2" cy="2" r="2"/><circle cx="2" cy="9" r="2"/><circle cx="2" cy="16" r="2"/></svg>
+            </div>
+          </div>
+
+          <div class="wa-chat">
+            <div class="day">HOJE</div>
+
+            <!-- Msg 1: novo pedido com botões Aceitar / Recusar -->
+            <div style="position: relative; padding-top: 20px; align-self: flex-start; width: 88%; margin-left: 4px;">
+              <span class="tpl-tag">FASTGAS</span>
+              <div class="msg template" style="width: 100%; max-width: 100%; margin-left: 0;">
+                <div class="tpl-head">Distribuidora São João</div>
+                <div class="tpl-body">
+                  <span class="item">• 1x — Gás P13</span>
+                  <span class="item" style="display:block;">• Água 20L</span>
+                  <div class="meta" style="margin-top: 8px;">💳 R$ 148,00 (Pix)</div>
+                  <div class="meta">📍 Distância: 2,3 km</div>
+                  <span class="tpl-time">09:27</span>
+                </div>
+                <div class="tpl-divider"></div>
+                <div style="display: flex;">
+                  <button class="tpl-btn" type="button" style="flex:1; border-right: 1px solid rgba(0,0,0,0.08);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+                    Aceitar
+                  </button>
+                  <button class="tpl-btn" type="button" style="flex:1; color:#E05252;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                    Recusar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Msg 2: resposta do distribuidor -->
+            <div class="msg out">
+              Aceitar
+              <span class="time">09:27 <span class="checks">✓✓</span></span>
+            </div>
+
+            <!-- Msg 3: detalhes do pedido -->
+            <div class="msg template">
+              <div style="margin: 8px 10px 6px; padding: 6px 10px; background: rgba(120,120,120,0.08); border-left: 3px solid #8A8A8A; border-radius: 4px; font-size: 12.5px; color: rgba(0,0,0,0.65); font-weight: 500;">Pedido No: WT2-6ZK</div>
+              <div class="tpl-body">
+                <span class="item" style="font-weight:600; font-size:14px; color:#111B21;">Carlos Silva</span>
+                <span class="item" style="display:block; margin-top:6px;">• 1x — Gás P13</span>
+                <span class="item" style="display:block;">• Água 20L</span>
+                <div class="meta" style="margin-top:8px;">💳 R$ 148,00 (Pix)</div>
+                <span class="tpl-time">09:28</span>
+              </div>
+            </div>
+
+            <!-- Msg 4: localização -->
+            <div class="wa-location">
+              <div class="loc-map">
+                <svg width="22" height="30" viewBox="0 0 20 28" fill="none" style="filter:drop-shadow(0 2px 5px rgba(0,0,0,0.35)); position:relative; z-index:2;">
+                  <path d="M10 0C5.6 0 2 3.6 2 8c0 6 8 20 8 20s8-14 8-20c0-4.4-3.6-8-8-8z" fill="#E74C3C"/>
+                  <circle cx="10" cy="8" r="3" fill="#fff"/>
+                </svg>
+              </div>
+              <div class="loc-info">
+                <div class="loc-name">Localização do cliente</div>
+                <div class="loc-addr">R. das Flores, 147<br>Florianópolis, SC</div>
+                <span class="loc-time">09:28</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="wa-input">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><path d="M8.5 14.5c1 1.2 2.2 1.8 3.5 1.8s2.5-.6 3.5-1.8" stroke-linecap="round"/></svg>
+            <div class="pill">
+              <span style="flex:1;">Mensagem</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+            </div>
+            <div class="send"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">01 / Como funciona</div>
+        <h2>Três passos. Nada para instalar.</h2>
+      </div>
+      <p class="section-lead">Você usa o mesmo WhatsApp de sempre. A Fastgas faz o resto.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step" data-reveal>
+        <div class="step-num">1</div>
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <h3>Um consumidor próximo a você faz o pedido</h3>
+        <p>O cliente escolhe os produtos no catálogo, informa o endereço e a forma de pagamento diretamente pelo WhatsApp.</p>
+      </div>
+      <div class="step" data-reveal>
+        <div class="step-num">2</div>
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <h3>O pedido chega no seu WhatsApp</h3>
+        <p>Fastgas envia o pedido para a distribuidora mais próxima disponível. Você recebe os produtos e forma de pagamento.</p>
+      </div>
+      <div class="step" data-reveal>
+        <div class="step-num">3</div>
+        <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+        <h3>Toque em “Aceitar” e entregue</h3>
+        <p>Com um toque, você recebe os dados completos e a localização exata do consumidor para realizar a entrega.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits" id="benefits">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">02 / Ganhos concretos</div>
+        <h2>Mais vendas. Zero burocracia.</h2>
+      </div>
+      <p class="section-lead">Nada de promessa vazia. Você ganha o que faz sentido pra quem entrega gás todo dia.</p>
+    </div>
+
+    <div class="bgrid">
+      <div class="bcard b-third" data-reveal>
+        <div class="big">10<span class="unit">pedidos grátis</span></div>
+        <h3>Comece sem pagar nada</h3>
+        <p>Primeiros 10 pedidos por nossa conta.</p>
+      </div>
+      <div class="bcard b-third" data-reveal>
+        <div class="big">0<span class="unit">apps novos</span></div>
+        <h3>Nada para instalar</h3>
+        <p>Funciona no WhatsApp que você já usa hoje. Sem dashboard, sem painel pra aprender.</p>
+      </div>
+      <div class="bcard b-half" data-reveal style="background: linear-gradient(135deg, #FFB800 0%, #FFC533 100%); color: var(--ink); border-color: transparent;">
+        <div class="big" style="color: var(--ink);">1<span class="unit" style="color: rgba(31,31,31,0.7);">toque</span></div>
+        <h3 style="color: var(--ink);">Aceitar pedido em um toque</h3>
+        <p style="color: rgba(31,31,31,0.7);">O botão “Aceitar pedido” aparece dentro da mensagem. Não tem chamada, não tem fila, não tem login. É o mesmo gesto de abrir uma conversa.</p>
+      </div>
+
+      <div class="bcard b-third" data-reveal>
+        <div class="big">+<span class="unit">vendas</span></div>
+        <h3>Clientes novos</h3>
+        <p>Pessoas da sua região que não conhecem sua distribuidora encontram você pela Fastgas.</p>
+      </div>
+
+      <div class="compare" data-reveal>
+        <div class="compare-col">
+          <h4>Como é hoje</h4>
+          <ul>
+            <li><span class="x">✕</span> Esperar o telefone tocar</li>
+            <li><span class="x">✕</span> Cliente esquece o nome da distribuidora</li>
+            <li><span class="x">✕</span> Concorrência com mais visibilidade</li>
+          </ul>
+        </div>
+        <div class="compare-vs">vs Fastgas</div>
+        <div class="compare-col winner">
+          <h4 style="color: var(--yellow);">Com Fastgas</h4>
+          <ul>
+            <li><span class="ch">✓</span> Pedidos chegam direto, com endereço</li>
+            <li><span class="ch">✓</span> Você é o mais próximo: você atende</li>
+            <li><span class="ch">✓</span> Cresce sem investir em propaganda</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="precos">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">03 / Preço</div>
+        <h2>Primeiros 10 pedidos grátis. Depois, menos de R$ 1 por pedido.</h2>
+      </div>
+      <p class="section-lead">Preço claro, sem letra miúda.</p>
+    </div>
+
+    <div class="price-grid">
+      <div class="price-card" data-reveal>
+        <div>
+          <span class="price-tag"><span style="width:6px;height:6px;background:#1F1F1F;border-radius:50%;"></span> 10 pedidos grátis</span>
+          <h3 class="price-title">Plano Distribuidora</h3>
+          <p class="price-lead">Tudo o que você precisa pra começar a receber pedidos hoje.</p>
+
+          <div class="price-amount">
+            <span class="num"><small>R$</small>89</span>
+            <span class="per">/mês, depois do período grátis</span>
+          </div>
+          <div class="price-equiv">≈ menos de R$ 1,00 por pedido</div>
+
+          <ul class="price-list">
+            <li><span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Até 100 pedidos por mês</li>
+            <li><span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Pedidos no seu WhatsApp atual</li>
+            <li><span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Botão “Aceitar pedido” no chat</li>
+            <li><span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Endereço e geolocalização do cliente</li>
+            <li><span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Cancele quando quiser, sem multa</li>
+          </ul>
+        </div>
+
+        <a href="https://wa.me/5515996993842?text=Ol%C3%A1!%20Tenho%20interesse%20em%20cadastrar%20minha%20distribuidora%20na%20Fastgas." class="btn-primary" target="_blank" rel="noopener" style="align-self:flex-start;">
+          Quero ser parceiro
+        </a>
+      </div>
+
+      <div class="price-side">
+        <div class="price-feature yellow" data-reveal>
+          <div>
+            <div class="pf-num">10 pedidos</div>
+            <h4>Por nossa conta</h4>
+          </div>
+          <p>Primeiros 10 pedidos por nossa conta. Só paga se você decidir continuar.</p>
+        </div>
+        <div class="price-feature" data-reveal>
+          <div>
+            <div class="pf-num">100<span style="font-size:24px; color: var(--ink-soft); font-weight:500; letter-spacing:0;"> pedidos</span></div>
+            <h4>Incluídos no plano</h4>
+          </div>
+          <p>Dividindo R$ 89 por 100 pedidos dá R$ 0,89 cada — preço de um café por uma venda nova entrando na sua rota.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTIONS -->
+<section class="obj" id="duvidas">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">04 / Sem rodeio</div>
+        <h2>Vamos resolver as dúvidas reais.</h2>
+      </div>
+      <p class="section-lead">Respostas diretas. Sem letra miúda, sem promessa que a gente não vai cumprir.</p>
+    </div>
+
+    <div class="obj-list" id="objList">
+      <div class="obj-item">
+        <button class="obj-q" type="button">
+          <span class="qnum">Q.01</span>
+          <span class="qtxt">Tem custo pra entrar?</span>
+          <span class="obj-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="obj-a"><div class="obj-a-inner">
+          <strong>Não.</strong> Os primeiros 10 pedidos é totalmente grátis. Você testa, mede o resultado e decide se quer seguir. Depois do período grátis, o plano é <strong>R$ 89/mês</strong>, com até 100 pedidos no mês — menos de R$ 1 por pedido.
+        </div></div>
+      </div>
+
+      <div class="obj-item">
+        <button class="obj-q" type="button">
+          <span class="qnum">Q.02</span>
+          <span class="qtxt">Preciso instalar alguma coisa?</span>
+          <span class="obj-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="obj-a"><div class="obj-a-inner">
+          <strong>Nada.</strong> Sem app, sem painel, sem treinamento. Os pedidos chegam no <strong>WhatsApp que você já usa</strong>. Se você sabe ler uma mensagem e responder "sim", já sabe operar a Fastgas.
+        </div></div>
+      </div>
+
+      <div class="obj-item">
+        <button class="obj-q" type="button">
+          <span class="qnum">Q.03</span>
+          <span class="qtxt">E se eu quiser parar?</span>
+          <span class="obj-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="obj-a"><div class="obj-a-inner">
+          <strong>Pode parar quando quiser.</strong> Sem multa, sem fidelidade, sem ligação cobrando. Manda mensagem, e a gente desliga sua distribuidora dos envios.
+        </div></div>
+      </div>
+
+      <div class="obj-item">
+        <button class="obj-q" type="button">
+          <span class="qnum">Q.04</span>
+          <span class="qtxt">E se eu estiver ocupado e recusar pedidos?</span>
+          <span class="obj-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="obj-a"><div class="obj-a-inner">
+          <strong>Sem problema.</strong> Se não tocar em “Aceitar”, o pedido vai para a próxima distribuidora da fila. Você não perde nota, não recebe ligação, não tem penalidade. Atende quando der, do jeito que der.
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="cta">
+  <div class="container cta-inner">
+    <h2>Comece hoje. Receba o primeiro pedido essa semana.</h2>
+    <p class="cta-lead">Um WhatsApp pra Fastgas é o suficiente. A gente liga sua distribuidora à plataforma e os pedidos começam a chegar.</p>
+    <a href="https://wa.me/5515996993842?text=Ol%C3%A1!%20Tenho%20interesse%20em%20cadastrar%20minha%20distribuidora%20na%20Fastgas." class="btn-wa" target="_blank" rel="noopener">
+      <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.3.7 4.4 1.8 6.2L4 29l8-2c1.7.9 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm6.6 16.7c-.3.8-1.6 1.5-2.3 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.7-5.7-4.9-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.7-.4 1-.4h.7c.2 0 .5-.1.8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.5.6-.2.2-.4.4-.2.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.8.3.1.5.1.7-.1.2-.2.8-1 1-1.3.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1 .3.2.6.2.6.4.1.2.1.9-.3 1.7z"/></svg>
+      Quero ser parceiro
+    </a>
+    <div class="cta-mini">Resposta em minutos · Atendimento humano</div>
+  </div>
+</section>
+
+<!-- LOGIN MODAL -->
+<div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose" aria-label="Fechar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-tag">
+      <span style="width:6px;height:6px;background:var(--yellow);border-radius:50%;display:inline-block;"></span>
+      Em breve
+    </div>
+    <h2 class="modal-title" id="modalTitle">Painel em construção</h2>
+    <p class="modal-body">O painel do distribuidor está sendo desenvolvido. Em breve você terá acesso ao histórico de pedidos, relatórios e configurações diretamente por aqui.</p>
+    <p class="modal-body" style="font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 0;">Enquanto isso, fale conosco pelo WhatsApp se precisar de ajuda.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="#" class="logo"><img src="logo.svg" alt="Fastgas" /></a>
+        <p>Pedidos de gás e água direto no WhatsApp das distribuidoras. Rápido, simples e sem app.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h6>Plataforma</h6>
+          <a href="#how">Como funciona</a>
+          <a href="#benefits">Vantagens</a>
+          <a href="#precos">Preços</a>
+        </div>
+        <div class="foot-col">
+          <h6>Contato</h6>
+          <a href="https://wa.me/5515996993842?text=Ol%C3%A1!%20Tenho%20interesse%20em%20cadastrar%20minha%20distribuidora%20na%20Fastgas." target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://www.instagram.com/fastgasbr" onclick="event.preventDefault()">Instagram</a>
+          <a href="mailto:contato@fastgas.com.br">contato@fastgas.com.br</a>
+        </div>
+        <div class="foot-col">
+          <h6>Empresa</h6>
+          <a href="index.html">Para clientes</a>
+          <a href="privacy-policy.html">Política de privacidade</a>
+          <a href="terms-of-use.html">Termos de uso</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Fastgas · fastgas.com.br</span>
+      <span>Florianópolis · Santa Catarina</span>
+    </div>
+    <div class="foot-legal">
+      Fastgas é um produto da BACKLAB TECNOLOGIA LTDA · CNPJ 51.694.798/0001-50 · Florianópolis – SC · contato@fastgas.com.br
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Login modal
+  const loginModal = document.getElementById('loginModal');
+  document.querySelector('.btn-outline').addEventListener('click', () => loginModal.classList.add('active'));
+  document.getElementById('modalClose').addEventListener('click', () => loginModal.classList.remove('active'));
+  loginModal.addEventListener('click', (e) => { if (e.target === loginModal) loginModal.classList.remove('active'); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') loginModal.classList.remove('active'); });
+
+  // Accordion (objections)
+  document.querySelectorAll('.obj-item').forEach((item) => {
+    const btn = item.querySelector('.obj-q');
+    const a = item.querySelector('.obj-a');
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.obj-item').forEach(o => {
+        o.classList.remove('open');
+        o.querySelector('.obj-a').style.maxHeight = '0px';
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

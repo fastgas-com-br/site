@@ -1,180 +1,1532 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fastgas - Gás e Água pelo WhatsApp</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    
-    <link rel="icon" href="logo.png" type="image/png">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fastgas — Peça gás e água pelo WhatsApp</title>
+<meta name="description" content="Peça gás de cozinha e galão de água em poucos toques pelo WhatsApp. A Fastgas conecta você ao distribuidor mais próximo em Florianópolis e região." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIxMDI0IiB2aWV3Qm94PSIwIDAgMTAyNCAxMDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIxMDI0IiBmaWxsPSIjMUUxRTFFIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSIxMDI0IiBoZWlnaHQ9IjEwMjQiIGZpbGw9IiNGRkM1MzMiPjwvcmVjdD4KPHJlY3QgeD0iMjY5Ljk0NiIgeT0iMTc2LjkzNSIgd2lkdGg9IjU3Ny4xMjYiIGhlaWdodD0iNTcxLjQ4NSIgcng9IjEwOSIgdHJhbnNmb3JtPSJyb3RhdGUoNi45NTIwMiAyNjkuOTQ2IDE3Ni45MzUpIiBmaWxsPSIjMzMzMzMzIj48L3JlY3Q+CjxyZWN0IHg9IjQzNiIgeT0iMTc1IiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjkwIiByeD0iMTYiIGZpbGw9IiMzMzMzMzMiPjwvcmVjdD4KPHJlY3QgeD0iMzM5IiB5PSI3NTUiIHdpZHRoPSIzMDEiIGhlaWdodD0iNjIiIHJ4PSIxNiIgZmlsbD0iIzMzMzMzMyI+PC9yZWN0Pgo8cGF0aCBkPSJNODY2Ljk2MiAxODRMMzIzLjQ1IDQ0Ny45ODFMNTA2Ljc4NCA1MzEuNzU5TDE1Ny45NjIgODQwTDcyMC45NDQgNTIwLjY5NEw1NTAuNTg5IDQ0Ny45ODFMODY2Ljk2MiAxODRaIiBmaWxsPSIjRkZDNTMzIiBzdHJva2U9IiNGRkM1MzMiPjwvcGF0aD4KPC9zdmc+" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFC533;
+    --yellow-2: #FFB800;
+    --ink: #1F1F1F;
+    --ink-2: #2B2B2B;
+    --ink-soft: #5C5C5C;
+    --mute: #8A8A8A;
+    --line: #ECECEC;
+    --line-2: #E0E0E0;
+    --bg: #FFFFFF;
+    --bg-soft: #F5F5F5;
+    --bg-paper: #FAFAFA;
+    --green-wa: #25D366;
+    --green-deep: #128C7E;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 16px -4px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.04);
+    --shadow-lg: 0 24px 60px -20px rgba(0,0,0,0.12), 0 8px 24px -8px rgba(0,0,0,0.06);
+    --shadow-xl: 0 40px 80px -20px rgba(0,0,0,0.18), 0 16px 32px -12px rgba(0,0,0,0.08);
+    --r-sm: 12px;
+    --r: 16px;
+    --r-lg: 22px;
+    --r-xl: 28px;
+    --font: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--font);
+    color: var(--ink);
+    background: var(--bg);
+    font-weight: 500;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; border: none; background: none; }
 
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'fastgas-yellow': '#E0C83E',
-              'fastgas-brown': '#4A3F0E',
-              'whatsapp-green': '#25D366',
-            }
-          }
-        }
-      }
-    </script>
+  .container {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* --- NAV --- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+  }
+  .logo img {
+    height: 36px;
+    width: auto;
+    display: block;
+    border-radius: 8px;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .nav-link {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    transition: color .15s ease;
+  }
+  .nav-link:hover { color: var(--ink); }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 20px 0 14px;
+    background: var(--yellow);
+    color: var(--ink);
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
+    box-shadow: 0 2px 8px -2px rgba(255,184,0,0.4);
+  }
+  .nav-cta:hover { background: var(--yellow-2); transform: translateY(-1px); box-shadow: 0 4px 12px -2px rgba(255,184,0,0.55); }
+  .nav-cta svg { width: 18px; height: 18px; color: var(--ink); flex-shrink: 0; }
+  .nav-mobile { display: none; }
+
+  /* --- HERO --- */
+  .hero {
+    padding: 80px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 700px 500px at 75% 30%, rgba(255,197,51,0.18), transparent 60%);
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px 6px 6px;
+    background: var(--bg-soft);
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink-2);
+    margin-bottom: 28px;
+  }
+  .badge .dot {
+    width: 22px; height: 22px;
+    background: var(--yellow);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-size: 11px;
+  }
+  .badge .pulse {
+    width: 6px; height: 6px;
+    background: #18A957;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(24,169,87,0.15);
+    animation: ping 2s ease-in-out infinite;
+  }
+  @keyframes ping {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(24,169,87,0.15); }
+    50% { box-shadow: 0 0 0 8px rgba(24,169,87,0); }
+  }
+  h1 {
+    font-size: clamp(40px, 5.5vw, 60px);
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    margin: 0 0 24px;
+    text-wrap: balance;
+  }
+  h1 em {
+    font-style: normal;
+    color: var(--green-wa);
+    font-weight: 800;
+  }
+  .hero-sub {
+    font-size: 22px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin: 0 0 36px;
+    max-width: 520px;
+    font-weight: 400;
+  }
+  .hero-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    height: 60px;
+    padding: 0 28px;
+    background: var(--yellow);
+    color: var(--ink);
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.5) inset,
+      0 -1px 0 rgba(0,0,0,0.05) inset,
+      0 14px 32px -8px rgba(255,184,0,0.55),
+      0 4px 10px rgba(0,0,0,0.06);
+  }
+  .btn-primary:hover {
+    background: var(--yellow-2);
+    transform: translateY(-2px);
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.5) inset,
+      0 -1px 0 rgba(0,0,0,0.05) inset,
+      0 22px 40px -8px rgba(255,184,0,0.7),
+      0 6px 14px rgba(0,0,0,0.08);
+  }
+  .btn-primary svg { width: 22px; height: 22px; color: var(--ink); flex-shrink: 0; }
+
+  .trust {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+  .stars {
+    display: inline-flex;
+    gap: 2px;
+    color: var(--yellow-2);
+  }
+  .stars svg { width: 14px; height: 14px; }
+  .avatars {
+    display: inline-flex;
+  }
+  .avatars span {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin-left: -8px;
+    background: var(--bg-soft);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ink);
+    display: grid; place-items: center;
+  }
+  .avatars span:first-child { margin-left: 0; }
+  .avatars span:nth-child(1) { background: #FFE08A; }
+  .avatars span:nth-child(2) { background: #FFD05A; }
+  .avatars span:nth-child(3) { background: #1F1F1F; color: var(--yellow); }
+  .avatars span:nth-child(4) { background: #FFC533; }
+
+  /* PHONE - iPhone style */
+  .phone-stage {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 760px;
+    pointer-events: none;
+    user-select: none;
+  }
+  .phone {
+    width: 340px;
+    background: #1a1a1c;
+    border-radius: 52px;
+    padding: 8px;
+    box-shadow:
+      0 0 0 2px #2c2c2e,
+      0 0 0 3px #0a0a0a,
+      var(--shadow-xl);
+    position: relative;
+    z-index: 2;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+  /* Side buttons */
+  .phone::before {
+    content: "";
+    position: absolute;
+    left: -3px;
+    top: 110px;
+    width: 3px;
+    height: 32px;
+    background: #2c2c2e;
+    border-radius: 2px 0 0 2px;
+    box-shadow: 0 50px 0 #2c2c2e, 0 96px 0 #2c2c2e;
+  }
+  .phone::after {
+    content: "";
+    position: absolute;
+    right: -3px;
+    top: 140px;
+    width: 3px;
+    height: 56px;
+    background: #2c2c2e;
+    border-radius: 0 2px 2px 0;
+  }
+  .phone-screen {
+    background: #E5DDD5;
+    border-radius: 44px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 720px;
+    position: relative;
+  }
+  /* Dynamic Island */
+  .island {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 116px;
+    height: 34px;
+    background: #000;
+    border-radius: 22px;
+    z-index: 10;
+  }
+  /* Home indicator */
+  .home-bar {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 134px;
+    height: 5px;
+    background: #111;
+    border-radius: 3px;
+    opacity: 0.55;
+    z-index: 10;
+  }
+
+  /* status bar */
+  .status-bar {
+    background: #075E54;
+    color: #fff;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 28px 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    font-family: var(--font);
+  }
+  .status-bar .icons {
+    display: flex; align-items: center; gap: 5px;
+  }
+  /* wa header */
+  .wa-head {
+    background: #075E54;
+    color: #fff;
+    padding: 6px 12px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .wa-back { display: grid; place-items: center; opacity: 0.95; }
+  .wa-back svg { width: 18px; height: 18px; }
+  .wa-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--yellow);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .wa-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .wa-name { font-size: 15px; font-weight: 500; line-height: 1.1; }
+  .wa-status {
+    font-size: 12px;
+    color: rgba(255,255,255,0.78);
+    margin-top: 2px;
+  }
+  .wa-icons-h { margin-left: auto; display: flex; gap: 18px; opacity: 0.95; }
+  .wa-icons-h svg { width: 18px; height: 18px; }
+
+  /* chat */
+  .wa-chat {
+    flex: 1;
+    background-color: #E5DDD5;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><g fill='%23d4ccc0' opacity='0.45'><circle cx='10' cy='12' r='1'/><circle cx='42' cy='8' r='0.8'/><circle cx='28' cy='30' r='1'/><circle cx='50' cy='38' r='0.7'/><circle cx='14' cy='48' r='0.9'/></g></svg>");
+    padding: 14px 8px 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 8px;
+    font-size: 14px;
+    color: #111B21;
+  }
+  .wa-chat > * { flex-shrink: 0; }
+  .day {
+    align-self: center;
+    background: rgba(225,245,254,0.92);
+    color: #54656F;
+    font-size: 11.5px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    margin: 4px 0;
+  }
+  .bub {
+    max-width: 76%;
+    padding: 6px 8px 18px;
+    border-radius: 8px;
+    line-height: 1.35;
+    position: relative;
+    box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+    font-size: 13.5px;
+    word-wrap: break-word;
+  }
+  .bub.in {
+    background: #fff;
+    align-self: flex-start;
+    border-top-left-radius: 0;
+    margin-left: 4px;
+  }
+  .bub.out {
+    background: #DCF8C6;
+    align-self: flex-end;
+    border-top-right-radius: 0;
+    margin-right: 4px;
+    padding-right: 56px;
+  }
+  .bub .t {
+    position: absolute;
+    bottom: 4px; right: 8px;
+    font-size: 10.5px;
+    color: rgba(0,0,0,0.45);
+  }
+  .bub.out .t { display: inline-flex; gap: 3px; align-items: center; }
+  .bub .checks { color: #34B7F1; font-size: 12px; letter-spacing: -2px; }
+
+  /* Outgoing catalog order (image 1) */
+  .cat-order {
+    background: #DCF8C6;
+    align-self: flex-end;
+    margin-right: 4px;
+    border-radius: 8px;
+    border-top-right-radius: 0;
+    box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+    width: 82%;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+  }
+  .cat-order-label {
+    padding: 8px 10px 4px;
+    font-size: 11.5px;
+    color: rgba(0,0,0,0.55);
+    font-weight: 500;
+  }
+  .cat-order-row {
+    padding: 0 10px 6px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .cat-thumb {
+    width: 64px; height: 64px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #BFE4FF, #6EC1F2);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    color: rgba(31,31,31,0.85);
+    overflow: hidden;
+  }
+  .cat-thumb svg { width: 38px; height: 38px; }
+  .cat-order-info { flex: 1; min-width: 0; padding-bottom: 6px; }
+  .cat-order-items {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111B21;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .cat-order-items .bag {
+    color: #54656F;
+    display: inline-flex;
+  }
+  .cat-order-items .bag svg { width: 14px; height: 14px; }
+  .cat-order-total {
+    font-size: 12.5px;
+    color: rgba(0,0,0,0.7);
+  }
+  .cat-order-total b {
+    font-weight: 700;
+    color: #111B21;
+    margin-right: 4px;
+  }
+  .cat-order .t {
+    display: block;
+    text-align: right;
+    padding: 0 10px 6px;
+    font-size: 10.5px;
+    color: rgba(0,0,0,0.45);
+  }
+  .cat-order .t .checks { color: #34B7F1; font-size: 12px; letter-spacing: -2px; }
+  .msg-divider {
+    height: 1px;
+    background: rgba(0,0,0,0.08);
+  }
+  .msg-action {
+    width: 100%;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #00A884;
+    font-weight: 500;
+    font-size: 13.5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    text-align: center;
+  }
+  .msg-action svg { width: 14px; height: 14px; }
+  .msg-action.dim { color: rgba(0,0,0,0.55); font-weight: 500; }
+
+  /* Incoming: order received (image 2) */
+  .order-recv {
+    background: #fff;
+    align-self: flex-start;
+    margin-left: 4px;
+    border-radius: 8px;
+    border-top-left-radius: 0;
+    box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+    width: 76%;
+    overflow: hidden;
+    position: relative;
+  }
+  .order-recv .head {
+    padding: 10px 12px 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #111B21;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .order-recv .body {
+    padding: 0 12px 14px;
+    font-size: 11px;
+    color: rgba(0,0,0,0.5);
+    position: relative;
+  }
+  .order-recv .body .t {
+    position: absolute;
+    right: 12px;
+    bottom: 0;
+    font-size: 10.5px;
+    color: rgba(0,0,0,0.45);
+  }
+
+  /* Incoming: order accepted (image 3) */
+  .order-accepted {
+    background: #fff;
+    align-self: flex-start;
+    margin-left: 4px;
+    border-radius: 8px;
+    border-top-left-radius: 0;
+    box-shadow: 0 1px 0.5px rgba(0,0,0,0.13);
+    width: 82%;
+    overflow: hidden;
+    position: relative;
+  }
+    .order-accepted .quote {
+      margin: 8px 10px 6px;
+      padding: 6px 10px;
+      background: rgba(120,120,120,0.08);
+      border-left: 3px solid #8A8A8A;
+      border-radius: 4px;
+      font-size: 12.5px;
+      color: rgba(0,0,0,0.65);
+      font-weight: 500;
+    }
+  .order-accepted .ack {
+    padding: 0 12px;
+    font-size: 13.5px;
+    color: #111B21;
+    line-height: 1.45;
+    margin: 2px 0 10px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .order-accepted .ack .ok {
+    width: 18px; height: 18px;
+    background: #18A957;
+    color: #fff;
+    border-radius: 4px;
+    display: grid; place-items: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .order-accepted .ack .ok svg { width: 11px; height: 11px; }
+  .order-accepted .eta {
+    padding: 0 12px 6px;
+    font-size: 13.5px;
+    color: #111B21;
+  }
+  .order-accepted .eta u {
+    text-decoration: underline;
+    text-decoration-color: #00A884;
+    text-underline-offset: 2px;
+    color: #00A884;
+    font-weight: 600;
+  }
+  .order-accepted .hint {
+    padding: 0 12px 14px;
+    font-size: 11px;
+    color: rgba(0,0,0,0.5);
+    position: relative;
+  }
+  .order-accepted .hint .t {
+    position: absolute;
+    right: 12px;
+    bottom: 0;
+    font-size: 10.5px;
+    color: rgba(0,0,0,0.45);
+  }
+
+  /* input */
+  .wa-input {
+    background: #E5DDD5;
+    padding: 6px 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .wa-input .pill {
+    flex: 1;
+    height: 38px;
+    background: #fff;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 10px 0 12px;
+    color: #8696A0;
+    font-size: 13px;
+    box-shadow: 0 1px 0.5px rgba(0,0,0,0.08);
+  }
+  .wa-input svg { width: 18px; height: 18px; color: #54656F; }
+  .wa-input .send {
+    width: 38px; height: 38px;
+    background: #075E54;
+    color: #fff;
+    border-radius: 50%;
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .wa-input .send svg { color: #fff; }
+
+  /* floating chips around phone */
+  .float {
+    position: absolute;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px -16px rgba(0,0,0,0.22), 0 4px 12px rgba(0,0,0,0.06);
+    padding: 12px 16px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .float.f1 {
+    top: 8%;
+    left: -8%;
+    animation: bob 5s ease-in-out infinite;
+  }
+  .float.f2 {
+    bottom: 10%;
+    right: -10%;
+    animation: bob 5s ease-in-out infinite 1.5s;
+  }
+  .float .ico {
+    width: 36px; height: 36px;
+    border-radius: 11px;
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .float .ico.yellow { background: var(--yellow); }
+  .float .ico.green { background: #E7F8EE; color: #18A957; }
+  .float .ico svg { width: 16px; height: 16px; }
+  .float .sub { display: block; font-size: 11px; color: var(--ink-soft); font-weight: 500; margin-top: 1px; }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* SECTION */
+  section { padding: 96px 0; }
+  .section-head {
+    text-align: center;
+    margin: 0 auto 64px;
+    max-width: 720px;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  h2 {
+    font-size: clamp(36px, 4.2vw, 42px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+  .section-sub {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* HOW */
+  .how-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    position: relative;
+  }
+  .step {
+    background: var(--bg-soft);
+    border-radius: var(--r-lg);
+    padding: 36px 32px 32px;
+    position: relative;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .step:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+  .step-num {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    letter-spacing: 0.06em;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .step-num .n {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--yellow);
+    display: grid; place-items: center;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .step .icon-tile {
+    width: 56px; height: 56px;
+    border-radius: 16px;
+    background: var(--yellow);
+    display: grid; place-items: center;
+    margin-bottom: 20px;
+  }
+  .step .icon-tile svg { width: 26px; height: 26px; color: var(--ink); }
+  .step h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    letter-spacing: -0.015em;
+  }
+  .step p {
+    color: var(--ink-soft);
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  /* BENEFITS */
+  .benefits {
+    background: var(--bg-soft);
+  }
+  .b-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .b-card {
+    background: #fff;
+    border-radius: var(--r-lg);
+    padding: 32px;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .b-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  .b-card .icon-tile {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    background: var(--bg-soft);
+    display: grid; place-items: center;
+    margin-bottom: 24px;
+    color: var(--ink);
+  }
+  .b-card.featured .icon-tile {
+    background: var(--ink);
+    color: var(--yellow);
+  }
+  .b-card .icon-tile svg { width: 22px; height: 22px; }
+  .b-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    letter-spacing: -0.015em;
+  }
+  .b-card p {
+    color: var(--ink-soft);
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  /* COVERAGE */
+  .coverage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .coverage-text h2 { font-size: clamp(30px, 3.6vw, 42px); }
+  .coverage-text .section-sub { margin: 0 0 32px; }
+  .coverage-stats {
+    display: flex;
+    gap: 32px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  .coverage-stats .stat {
+    border-left: 2px solid var(--yellow);
+    padding-left: 14px;
+  }
+  .coverage-stats .stat .num {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1.05;
+  }
+  .coverage-stats .stat .lbl {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+
+  .map {
+    background: var(--bg-soft);
+    border-radius: var(--r-xl);
+    aspect-ratio: 1/1.15;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .map img { width: 48%; height: 90%; object-fit: contain; position: relative; z-index: 2; }
+  .map-pin {
+    position: absolute;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--yellow);
+    display: grid; place-items: center;
+    transform: translate(-50%, -100%);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    z-index: 5;
+    animation: pin-bob 2.8s ease-in-out infinite;
+  }
+  .map-pin::after {
+    content: "";
+    position: absolute;
+    bottom: -5px; left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px; height: 10px;
+    background: var(--ink);
+  }
+  @keyframes pin-bob {
+    0%, 100% { margin-top: 0; box-shadow: 0 6px 16px rgba(0,0,0,0.25); }
+    50% { margin-top: -8px; box-shadow: 0 14px 22px rgba(0,0,0,0.18); }
+  }
+  .map-dot {
+    position: absolute;
+    width: 8px; height: 8px;
+    background: var(--ink);
+    border: 1.5px solid #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    z-index: 4;
+  }
+  .map-pulse {
+    position: absolute;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: rgba(255,197,51,0.35);
+    transform: translate(-50%, -50%);
+    animation: pulse 2.5s ease-out infinite;
+    z-index: 3;
+  }
+  @keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(0.4); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+  }
+
+  /* DISTRIBUTOR */
+  .distrib {
+    background: var(--ink);
+    color: #fff;
+    border-radius: var(--r-xl);
+    padding: 56px 56px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin: 96px auto;
+    max-width: 1180px;
+    position: relative;
+    overflow: hidden;
+  }
+  .distrib::after {
+    content: "";
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: var(--yellow);
+    opacity: 0.08;
+  }
+  .distrib h3 {
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 700;
+    margin: 0 0 12px;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    position: relative;
+  }
+  .distrib p {
+    color: rgba(255,255,255,0.65);
+    margin: 0 0 0;
+    font-size: 16px;
+    line-height: 1.55;
+    max-width: 460px;
+  }
+  .distrib .label {
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 14px;
+    display: block;
+  }
+  .btn-outline-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    height: 52px;
+    padding: 0 24px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    color: #fff;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all .15s ease;
+    justify-self: end;
+    position: relative;
+  }
+  .btn-outline-light:hover {
+    background: var(--yellow);
+    color: var(--ink);
+    border-color: var(--yellow);
+  }
+  .btn-outline-light svg { width: 16px; height: 16px; }
+
+  /* FINAL CTA */
+  .final-cta {
+    background: var(--yellow);
+    padding: 96px 24px;
+    text-align: center;
+    border-radius: var(--r-xl);
+    margin: 0 24px 96px;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta h2 {
+    font-size: clamp(36px, 5vw, 60px);
+    margin: 0 auto 16px;
+    max-width: 760px;
+    color: var(--ink);
+  }
+  .final-cta p {
+    font-size: 17px;
+    color: rgba(31,31,31,0.7);
+    margin: 0 auto 36px;
+    max-width: 480px;
+  }
+  .btn-cta-big {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    height: 60px;
+    padding: 0 28px;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    box-shadow: 0 16px 36px -10px rgba(31,31,31,0.4);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-cta-big:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 44px -10px rgba(31,31,31,0.5);
+  }
+  .btn-cta-big svg { width: 22px; height: 22px; color: var(--green-wa); flex-shrink: 0; }
+  .final-cta small {
+    display: block;
+    margin-top: 18px;
+    color: rgba(31,31,31,0.55);
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+    padding: 56px 0 32px;
+  }
+  .foot-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .foot-left { max-width: 280px; }
+  .foot-left p {
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin: 20px 0 0;
+    line-height: 1.55;
+  }
+  .foot-links {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 36px 56px;
+    font-size: 14px;
+  }
+  .foot-col h6 {
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin: 0 0 14px;
+  }
+  .foot-col a {
+    display: block;
+    color: var(--ink-soft);
+    padding: 5px 0;
+    transition: color .15s ease;
+  }
+  .foot-col a:hover { color: var(--ink); }
+  .foot-bottom {
+    border-top: 1px solid var(--line);
+    margin-top: 48px;
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13px;
+    color: var(--mute);
+  }
+  .foot-legal {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    font-size: 11.5px;
+    color: var(--mute);
+    line-height: 1.6;
+  }
+
+  /* reveal */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  [data-reveal].in { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    .hero { padding: 56px 0 64px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 56px; }
+    .hero-sub { font-size: 18px; }
+    .phone-stage { min-height: auto; }
+    .nav-links { display: none; }
+    .nav-cta { padding: 0 14px; font-size: 13px; height: 38px; }
+    .how-steps { grid-template-columns: 1fr; gap: 14px; }
+    .b-grid { grid-template-columns: 1fr; }
+    .coverage-grid { grid-template-columns: 1fr; gap: 32px; }
+    section { padding: 72px 0; }
+    .distrib {
+      grid-template-columns: 1fr;
+      padding: 40px 32px;
+      margin: 72px 24px;
+    }
+    .btn-outline-light { justify-self: start; }
+    .final-cta { padding: 64px 24px; margin: 0 16px 72px; }
+    .foot-grid { flex-direction: column; gap: 32px; }
+    .foot-links { grid-template-columns: repeat(2, auto); gap: 28px 40px; }
+  }
+  @media (max-width: 520px) {
+    .phone { width: 300px; }
+    .phone-screen { height: 640px; }
+    .float.f1, .float.f2 { display: none; }
+    .step { padding: 28px 24px; }
+    .b-card { padding: 24px; }
+    .badge { font-size: 12.5px; }
+    .trust { gap: 14px; flex-wrap: wrap; }
+    .hero-sub { font-size: 17px; }
+    .btn-primary { height: 54px; font-size: 15.5px; padding: 0 22px; }
+    .btn-primary svg { width: 20px; height: 20px; }
+  }
+</style>
 </head>
-<body class="bg-fastgas-yellow text-fastgas-brown">
+<body>
 
-    <header class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-10">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#"><img src="logo.png" alt="Logo Fastgas" class="h-10"></a>
-            <nav class="hidden md:flex space-x-6">
-                <a href="#cliente" class="font-semibold hover:text-fastgas-yellow transition-colors">Peça Agora</a>
-                <a href="#parceiro" class="font-semibold hover:text-fastgas-yellow transition-colors">Seja um Parceiro</a>
-                <a href="#sobre" class="font-semibold hover:text-fastgas-yellow transition-colors">Sobre Nós</a>
-            </nav>
-        </div>
-    </header>
+<!-- NAV -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo" aria-label="Fastgas">
+      <img src="logo.svg" alt="Fastgas" />
+    </a>
+    <div class="nav-links">
+      <a href="#como" class="nav-link">Como funciona</a>
+      <a href="#beneficios" class="nav-link">Vantagens</a>
+      <a href="#cobertura" class="nav-link">Cobertura</a>
+      <a href="distribuitor.html" class="nav-link">Para distribuidoras</a>
+    </div>
+    <a href="https://wa.me/c/554831970675" class="nav-cta" target="_blank" rel="noopener">
+      <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.3.7 4.4 1.8 6.2L4 29l8-2c1.7.9 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm6.6 16.7c-.3.8-1.6 1.5-2.3 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.7-5.7-4.9-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.7-.4 1-.4h.7c.2 0 .5-.1.8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.5.6-.2.2-.4.4-.2.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.8.3.1.5.1.7-.1.2-.2.8-1 1-1.3.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1 .3.2.6.2.6.4.1.2.1.9-.3 1.7z"/></svg>
+      Pedir agora
+    </a>
+  </div>
+</nav>
 
-    <main id="cliente" class="container mx-auto px-6 py-16 md:py-24 text-center">
-        <h2 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-fastgas-brown">
-            Seu gás e água a um clique de distância.
-        </h2>
-        <p class="text-lg md:text-xl text-fastgas-brown/80 max-w-2xl mx-auto mb-8">
-            Peça de forma rápida e segura diretamente pelo WhatsApp. Sem complicações, sem espera.
-        </p>
-        
-        <a href="https://wa.me/5548936181567" 
-           target="_blank" 
-           rel="noopener noreferrer"
-           class="inline-flex items-center justify-center bg-whatsapp-green text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-green-600 transition-transform transform hover:scale-105 duration-300">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.357 1.846 6.067l-1.254 4.587 4.68-1.235z"/></svg>
-            Peça pelo WhatsApp
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-inner">
+    <div>
+<h1>Peça gás e água pelo <em>WhatsApp</em> em poucos cliques</h1>
+      <p class="hero-sub">Escolha no catálogo, confirme o pedido e receba da distribuidora mais próxima.</p>
+      <div class="hero-cta-row">
+        <a href="https://wa.me/c/554831970675" class="btn-primary" target="_blank" rel="noopener">
+          <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.3.7 4.4 1.8 6.2L4 29l8-2c1.7.9 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm6.6 16.7c-.3.8-1.6 1.5-2.3 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.7-5.7-4.9-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.7-.4 1-.4h.7c.2 0 .5-.1.8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.5.6-.2.2-.4.4-.2.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.8.3.1.5.1.7-.1.2-.2.8-1 1-1.3.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1 .3.2.6.2.6.4.1.2.1.9-.3 1.7z"/></svg>
+          Pedir no WhatsApp
         </a>
-    </main>
+      </div>
+    </div>
 
-    <section id="parceiro" class="bg-white/70 py-16 md:py-20">
-        <div class="container mx-auto px-6">
-            <div class="max-w-3xl mx-auto text-center">
-                <h3 class="text-3xl font-bold mb-4 text-fastgas-brown">Seja um Parceiro Fastgas</h3>
-                <p class="text-lg text-fastgas-brown/80 mb-8">
-                    Aumente suas vendas e otimize suas entregas. Preencha o formulário abaixo e nossa equipe entrará em contato.
-                </p>
+    <!-- Phone -->
+    <div class="phone-stage" aria-hidden="true">
+      <div class="float f1">
+        <span class="ico yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></span>
+        <span>Pedido em 30s<small class="sub">Sem ligar, sem app</small></span>
+      </div>
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="island"></div>
+          <div class="home-bar"></div>
+          <div class="status-bar">
+            <span>9:41</span>
+            <div class="icons">
+              <svg width="16" height="11" viewBox="0 0 16 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="0.5"/><rect x="4" y="5" width="3" height="6" rx="0.5"/><rect x="8" y="3" width="3" height="8" rx="0.5"/><rect x="12" y="0" width="3" height="11" rx="0.5"/></svg>
+              <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor"><path d="M7.5 0a10 10 0 016.5 2.5l-1.3 1.3a8 8 0 00-10.4 0L1 2.5A10 10 0 017.5 0zm0 3.5a6.5 6.5 0 014.3 1.6l-1.3 1.3a4.5 4.5 0 00-6 0L3.2 5.1a6.5 6.5 0 014.3-1.6zm0 3.5a3 3 0 012 .8L7.5 9.7 5.5 7.8a3 3 0 012-.8z"/></svg>
+              <svg width="26" height="12" viewBox="0 0 26 12" fill="none"><rect x="0.5" y="0.5" width="22" height="11" rx="3" stroke="currentColor" opacity="0.5"/><rect x="2.5" y="2.5" width="17" height="7" rx="1.5" fill="currentColor"/><rect x="23.5" y="4" width="2" height="4" rx="0.6" fill="currentColor"/></svg>
             </div>
-            <div class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md">
-                <form action="https://formsubmit.co/contato@fastgas.com.br" method="POST">
-                    <div class="mb-4">
-                        <label for="nome_estabelecimento" class="block text-gray-700 font-bold mb-2">Nome do estabelecimento</label>
-                        <input type="text" id="nome_estabelecimento" name="Estabelecimento" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-fastgas-yellow" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="nome_contato" class="block text-gray-700 font-bold mb-2">Seu Nome</label>
-                        <input type="text" id="nome_contato" name="Contato" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-fastgas-yellow" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="telefone" class="block text-gray-700 font-bold mb-2">WhatsApp</label>
-                        <input type="tel" id="telefone" name="WhatsApp" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-fastgas-yellow" required maxlength="15">
-                    </div>
-                    <div class="mb-6">
-                        <label for="bairro" class="block text-gray-700 font-bold mb-2">Bairro de Atuação</label>
-                        <select id="bairro" name="Bairro" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-fastgas-yellow" required>
-                            <option value="" disabled selected>Selecione um bairro</option>
-                            <option value="Ingleses">Ingleses</option>
-                            <option value="Santinho">Santinho</option>
-                            <option value="Canasvieiras">Canasvieiras</option>
-                            <option value="Rio Vermelho">Rio Vermelho</option>
-                            <option value="Jurerê">Jurerê</option>
-                            <option value="Daniela">Daniela</option>
-                            <option value="Ponta das Canas">Ponta das Canas</option>
-                            <option value="Cachoeira do Bom Jesus">Cachoeira do Bom Jesus</option>
-                            <option value="Vargem Grande">Vargem Grande</option>
-                            <option value="Vargem Pequena">Vargem Pequena</option>
-                            <option value="Outro">Outro</option>
-                        </select>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="w-full bg-fastgas-brown text-white font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition-colors duration-300">
-                            Enviar Contato
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
+          </div>
+          <div class="wa-head">
+            <span class="wa-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></span>
+            <div class="wa-avatar"><img src="logo.svg" alt="" /></div>
+            <div>
+              <div class="wa-name">Fastgas</div>
 
-    <section id="sobre" class="py-16 md:py-20">
-        <div class="container mx-auto px-6 text-center">
-            <h3 class="text-3xl font-bold mb-8 text-fastgas-brown">Sobre Nós</h3>
-            <div class="max-w-4xl mx-auto bg-white/50 p-8 rounded-lg shadow-md text-left">
-                <p class="text-lg mb-6 text-gray-700">
-                    A <strong class="text-fastgas-brown">Fastgas</strong> é uma solução inovadora da <strong class="font-semibold">BACKLAB TECNOLOGIA LTDA</strong>, criada para simplificar a compra de gás de cozinha e água mineral. Nosso objetivo é oferecer um serviço ágil e confiável, conectando clientes e distribuidores através de um chatbot inteligente no WhatsApp.
-                </p>
-                <div class="border-t border-gray-300 pt-6">
-                    <h4 class="text-xl font-bold mb-4 text-fastgas-brown">Nossa Sede</h4>
-                    <p class="text-gray-600">
-                        Avenida Prefeito Osmar Cunha, 416, Sala 1108<br>
-                        Centro, Florianópolis - SC<br>
-                        CEP: 88015-100
-                    </p>
+            </div>
+            <div class="wa-icons-h">
+              <span aria-label="Catálogo" title="Catálogo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              </span>
+              <svg viewBox="0 0 4 18" fill="currentColor"><circle cx="2" cy="2" r="2"/><circle cx="2" cy="9" r="2"/><circle cx="2" cy="16" r="2"/></svg>
+            </div>
+          </div>
+
+          <div class="wa-chat">
+            <div class="day">HOJE</div>
+
+            <!-- 1. OUTGOING: customer sends order via WhatsApp catalog -->
+            <div class="cat-order">
+              <div class="cat-order-label">Pedido pelo catálogo</div>
+              <div class="cat-order-row">
+                <div class="cat-thumb">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 3h6l-0.8 3H9.8z"/>
+                    <path d="M8 6h8v13a3 3 0 0 1-3 3h-2a3 3 0 0 1-3-3z"/>
+                    <path d="M10 11c.6.6 1.4.6 2 0s1.4-.6 2 0"/>
+                    <path d="M10 15c.6.6 1.4.6 2 0s1.4-.6 2 0"/>
+                  </svg>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-fastgas-brown text-white py-10">
-        <div class="container mx-auto px-6 text-center md:text-left">
-            <div class="md:flex md:justify-between md:items-center">
-                <div class="mb-6 md:mb-0">
-                    <h4 class="text-xl font-bold text-fastgas-yellow">Fastgas ⚡</h4>
-                    <p class="text-gray-300">Fastgas® é uma marca comercial pertencente a BACKLAB TECNOLOGIA LTDA - CNPJ: 51.694.798/0001-50.</p>
+                <div class="cat-order-info">
+                  <div class="cat-order-items">
+                    <span class="bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></span>
+                    2 itens
+                  </div>
+                  <div class="cat-order-total"><b>R$ 148,00</b>(total estimado)</div>
                 </div>
-                <div class="text-gray-200">
-                    <a href="/privacy-policy.html" target="_blank">Política de Privacidade</a>
-                    <span class="mx-2 text-gray-400">|</span>
-                    <a href="/terms-of-use.html" target="_blank">Termos de Uso</a>
-                </div>
+              </div>
+              <span class="t">21:09 <span class="checks">✓✓</span></span>
+              <div class="msg-divider"></div>
+              <button class="msg-action" type="button">Ver detalhes</button>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400 text-sm">
-                <p>&copy; 2024 BACKLAB TECNOLOGIA LTDA. Todos os direitos reservados.</p>
+
+            <!-- 2. INCOMING: Fastgas confirms reception, searching distributor -->
+            <div class="order-recv">
+              <div class="head">
+                <span aria-hidden="true">📦</span> Pedido recebido
+              </div>
+              <div class="body">
+                Buscando o distribuidor mais próximo
+                <span class="t">21:09</span>
+              </div>
+              <div class="msg-divider"></div>
+              <button class="msg-action" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg>
+                Mais detalhes
+              </button>
             </div>
+
+            <!-- 3. INCOMING: distributor accepts with ETA + confirm delivery button -->
+            <div class="order-accepted">
+              <div class="quote">Pedido No: WT2-6ZK</div>
+              <div class="ack">
+                <span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <span>Seu pedido foi aceito! Em breve sairá para entrega.</span>
+              </div>
+              <div class="eta">Previsão de entrega: <u>21:17 - 21:26</u></div>
+              <div class="hint">
+                Confirme a entrega quando receber
+                <span class="t">21:11</span>
+              </div>
+              <div class="msg-divider"></div>
+              <button class="msg-action" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg>
+                Confirmar entrega
+              </button>
+            </div>
+          </div>
+
+          <div class="wa-input">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><path d="M8.5 14.5c1 1.2 2.2 1.8 3.5 1.8s2.5-.6 3.5-1.8" stroke-linecap="round"/></svg>
+            <div class="pill">
+              <span style="flex:1;">Mensagem</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+            </div>
+            <div class="send"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg></div>
+          </div>
         </div>
-    </footer>
+      </div>
+      <div class="float f2">
+        <span class="ico green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span>Distribuidor mais próximo<small class="sub">1,2 km · 18 min</small></span>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <script>
-        const phoneInput = document.getElementById('telefone');
+<!-- HOW IT WORKS -->
+<section id="como">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Como funciona</span>
+      <h2>Três passos. Nada para baixar.</h2>
+      <p class="section-sub">Tudo acontece no WhatsApp que você já tem no celular.</p>
+    </div>
+    <div class="how-steps">
+      <div class="step" data-reveal>
+        <div class="step-num"><span class="n">1</span> Passo</div>
+        <div class="icon-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <h3>Escolha no catálogo</h3>
+        <p>Abra a conversa, toque nos itens do catálogo do WhatsApp e monte seu pedido em segundos.</p>
+      </div>
+      <div class="step" data-reveal>
+        <div class="step-num"><span class="n">2</span> Passo</div>
+        <div class="icon-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Confirme endereço e pagamento</h3>
+        <p>Informe o endereço e a forma de pagamento. Da próxima vez, já vai estar salvo.</p>
+      </div>
+      <div class="step" data-reveal>
+        <div class="step-num"><span class="n">3</span> Passo</div>
+        <div class="icon-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h13l5 5v5h-3"/><path d="M3 17h11"/><circle cx="6" cy="17" r="2"/><circle cx="18" cy="17" r="2"/></svg>
+        </div>
+        <h3>Receba em casa</h3>
+        <p>A distribuidora mais próxima sai para a entrega. Você acompanha o status na mesma conversa.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        phoneInput.addEventListener('input', (e) => {
-            let value = e.target.value.replace(/\D/g, '');
-            value = value.substring(0, 11);
+<!-- BENEFITS -->
+<section class="benefits" id="beneficios">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Por que Fastgas</span>
+      <h2>Pedir gás finalmente fácil.</h2>
+      <p class="section-sub">Sem instalar nada. Sem cadastro chato. Sem perder tempo procurando contato.</p>
+    </div>
 
-            if (value.length === 0) {
-                e.target.value = '';
-                return;
-            }
+    <div class="b-grid">
+      <div class="b-card featured" data-reveal>
+        <div class="icon-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
+        </div>
+        <h3>Pedido em segundos</h3>
+        <p>Catálogo no chat, toque e pronto. Sem ligar, sem digitar endereço toda vez.</p>
+      </div>
+      <div class="b-card" data-reveal>
+        <div class="icon-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h3>No WhatsApp que você usa</h3>
+        <p>Nada de baixar app novo, criar senha, ou inventar cadastro. É a conversa que você já conhece.</p>
+      </div>
+      <div class="b-card" data-reveal>
+        <div class="icon-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Distribuidor mais próximo</h3>
+        <p>A gente acha quem está perto e disponível. Você não perde tempo procurando.</p>
+      </div>
+      <div class="b-card" data-reveal>
+        <div class="icon-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Confirmação rápida</h3>
+        <p>A entrega é confirmada em minutos pela distribuidora. Sem ficar no vácuo.</p>
+      </div>
+      <div class="b-card" data-reveal>
+        <div class="icon-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Status em tempo real</h3>
+        <p>Acompanhe a confirmação e previsão de entrega — tudo na conversa.</p>
+      </div>
+      <div class="b-card" data-reveal>
+        <div class="icon-tile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Sem baixar app</h3>
+        <p>Funciona de qualquer celular, em qualquer lugar. Zero memória, zero atualização.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-            if (value.length <= 2) {
-                e.target.value = '(' + value;
-            } else if (value.length <= 6) {
-                e.target.value = '(' + value.substring(0, 2) + ') ' + value.substring(2);
-            } else if (value.length <= 10) {
-                e.target.value = '(' + value.substring(0, 2) + ') ' + value.substring(2, 6) + '-' + value.substring(6);
-            } else {
-                e.target.value = '(' + value.substring(0, 2) + ') ' + value.substring(2, 7) + '-' + value.substring(7);
-            }
-        });
-    </script>
+<!-- COVERAGE -->
+<section id="cobertura">
+  <div class="container">
+    <div class="coverage-grid">
+      <div class="coverage-text">
+        <span class="eyebrow">Cobertura</span>
+        <h2>Atendendo Florianópolis e região.</h2>
+        <p class="section-sub" style="margin: 0 0 16px;">Distribuidoras parceiras espalhadas pela Grande Floripa pra entregar rápido onde você estiver.</p>
+        <div class="coverage-stats">
+          <div class="stat"><div class="num">25+</div><div class="lbl">Bairros atendidos</div></div>
+          <div class="stat"><div class="num">~25 min</div><div class="lbl">Tempo médio</div></div>
+          <div class="stat"><div class="num">7 dias</div><div class="lbl">Por semana</div></div>
+        </div>
+      </div>
+
+      <div class="map" aria-hidden="true">
+        <img src="map.svg" alt="Mapa de cobertura — Florianópolis e região" />
+        <!-- top area dots (top 35%) — positioned against actual island path coordinates -->
+        <div class="map-dot" style="top:9%;  left:59%;"></div>
+        <div class="map-dot" style="top:11%; left:61%;"></div>
+        <div class="map-dot" style="top:13%; left:58%;"></div>
+        <div class="map-dot" style="top:14%; left:60%;"></div>
+        <div class="map-dot" style="top:16%; left:56%;"></div>
+        <div class="map-dot" style="top:17%; left:63%;"></div>
+        <div class="map-dot" style="top:19%; left:47%;"></div>
+        <div class="map-dot" style="top:20%; left:64%;"></div>
+        <div class="map-dot" style="top:22%; left:43%;"></div>
+        <div class="map-dot" style="top:24%; left:55%;"></div>
+        <div class="map-dot" style="top:25%; left:64%;"></div>
+        <div class="map-dot" style="top:27%; left:44%;"></div>
+        <div class="map-dot" style="top:30%; left:53%;"></div>
+        <div class="map-dot" style="top:32%; left:45%;"></div>
+        <div class="map-dot" style="top:34%; left:56%;"></div>
+        <!-- mid-bottom dots (50%+) — island drifts left in southern half -->
+        <div class="map-dot" style="top:52%; left:43%;"></div>
+        <div class="map-dot" style="top:54%; left:40%;"></div>
+        <div class="map-dot" style="top:57%; left:45%;"></div>
+        <div class="map-dot" style="top:59%; left:37%;"></div>
+        <div class="map-dot" style="top:62%; left:43%;"></div>
+        <div class="map-dot" style="top:64%; left:37%;"></div>
+        <div class="map-dot" style="top:67%; left:43%;"></div>
+        <div class="map-dot" style="top:69%; left:33%;"></div>
+        <div class="map-dot" style="top:72%; left:40%;"></div>
+        <div class="map-dot" style="top:75%; left:35%;"></div>
+        <!-- pulse -->
+        <div class="map-pulse" style="top:44%; left:47%;"></div>
+        <div class="map-pulse" style="top:44%; left:47%; animation-delay:1.2s;"></div>
+        <!-- pin -->
+        <div class="map-pin" style="top:44%; left:47%;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C7 0 3 4 3 9c0 6 9 15 9 15s9-9 9-15c0-5-4-9-9-9z"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISTRIBUTOR (small) -->
+<section style="padding: 0;">
+  <div class="distrib">
+    <div>
+      <span class="label">Tem distribuidora?</span>
+      <h3>Receba pedidos no seu WhatsApp.</h3>
+      <p>A Fastgas envia clientes da sua região direto pra você. Sem app, sem painel — pedido chega no chat, é só aceitar.</p>
+    </div>
+    <a href="distribuitor.html" class="btn-outline-light">
+      Saber mais
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="padding: 0;">
+  <div class="final-cta">
+    <h2>Seu gás está a um toque de distância.</h2>
+    <p>Abra a conversa, escolha no catálogo, receba em casa. Simples assim.</p>
+    <a href="https://wa.me/c/554831970675" class="btn-cta-big" target="_blank" rel="noopener">
+      <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.3.7 4.4 1.8 6.2L4 29l8-2c1.7.9 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm6.6 16.7c-.3.8-1.6 1.5-2.3 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.7-5.7-4.9-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.7-.4 1-.4h.7c.2 0 .5-.1.8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.5.6-.2.2-.4.4-.2.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.8.3.1.5.1.7-.1.2-.2.8-1 1-1.3.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1 .3.2.6.2.6.4.1.2.1.9-.3 1.7z"/></svg>
+      Pedir no WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-left">
+        <a href="#" class="logo"><img src="logo.svg" alt="Fastgas" /></a>
+        <p>Gás e água pelo WhatsApp. Da distribuidora mais próxima, em poucos minutos.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h6>Produto</h6>
+          <a href="#como">Como funciona</a>
+          <a href="#beneficios">Vantagens</a>
+          <a href="#cobertura">Cobertura</a>
+        </div>
+        <div class="foot-col">
+          <h6>Contato</h6>
+          <a href="https://wa.me/c/554831970675" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://www.instagram.com/fastgasbr" onclick="event.preventDefault()">Instagram</a>
+          <a href="mailto:contato@fastgas.com.br">contato@fastgas.com.br</a>
+        </div>
+        <div class="foot-col">
+          <h6>Empresa</h6>
+          <a href="distribuitor.html">Para distribuidoras</a>
+          <a href="privacy-policy.html">Política de privacidade</a>
+          <a href="terms-of-use.html">Termos de uso</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Fastgas · fastgas.com.br</span>
+      <span>Florianópolis · Santa Catarina</span>
+    </div>
+    <div class="foot-legal">
+      Fastgas é um produto da BACKLAB TECNOLOGIA LTDA · CNPJ 51.694.798/0001-50 · Florianópolis – SC · contato@fastgas.com.br
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+</script>
 
 </body>
 </html>
