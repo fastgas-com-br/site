@@ -56,11 +56,11 @@
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(31, 31, 31, 0.92);
+    background: rgba(255, 184, 0, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--line);
-    color: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    color: var(--ink);
   }
   .nav-inner {
     display: flex;
@@ -71,14 +71,25 @@
   .logo {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
   }
   .logo img {
-    height: 36px;
+    height: 45px;
     width: auto;
     display: block;
     border-radius: 8px;
   }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .nav-link {
+    font-size: 14.5px;
+    font-weight: 500;
+    color: rgba(31,31,31,0.6);
+    transition: color .15s ease;
+  }
+  .nav-link:hover { color: var(--ink); }
   .nav-right { display: flex; align-items: center; gap: 12px; }
   .btn-outline {
     display: inline-flex;
@@ -86,8 +97,8 @@
     gap: 8px;
     height: 42px;
     padding: 0 18px;
-    border: 1.5px solid rgba(255,255,255,0.25);
-    color: var(--white);
+    border: 1.5px solid rgba(0,0,0,0.22);
+    color: var(--ink);
     border-radius: 999px;
     font-weight: 500;
     font-size: 14px;
@@ -95,8 +106,9 @@
     background: transparent;
   }
   .btn-outline:hover {
-    border-color: var(--yellow);
-    color: var(--yellow);
+    border-color: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.06);
+    color: var(--ink);
   }
 
   /* --- HERO --- */
@@ -1115,6 +1127,7 @@
 
   /* --- RESPONSIVE --- */
   @media (max-width: 960px) {
+    .nav-links { display: none; }
     section { padding: 80px 0; }
     .hero { padding: 48px 0 72px; }
     .hero-grid { grid-template-columns: 1fr; gap: 56px; }
@@ -1480,9 +1493,15 @@
 <!-- NAV -->
 <nav class="nav">
   <div class="container nav-inner">
-    <a href="#" class="logo" aria-label="Fastgas">
-      <img src="logo.svg" alt="Fastgas" />
+    <a href="index.html" class="logo" aria-label="Fastgas">
+      <img src="logo_cilinder.svg" alt="Fastgas" />
     </a>
+    <div class="nav-links">
+      <a href="#how" class="nav-link">Como funciona</a>
+      <a href="#benefits" class="nav-link">Vantagens</a>
+      <a href="#precos" class="nav-link">Preços</a>
+      <a href="#duvidas" class="nav-link">Dúvidas</a>
+    </div>
     <div class="nav-right">
       <button type="button" class="btn-outline" aria-label="Login do Distribuidor">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><path d="M10 17l5-5-5-5M15 12H3"/></svg>
@@ -1496,8 +1515,8 @@
 <header class="hero">
   <div class="container hero-grid">
     <div>
-      <h1 class="hero-title">Seu <em>WhatsApp</em> recebe<br>pedidos de gás<br>automaticamente</h1>
-      <p class="hero-sub">Receba pedidos diretamente no WhatsApp e aceite com um toque. Sem aplicativos extras ou sistemas complicados.</p>
+      <h1 class="hero-title">Seu <em>WhatsApp</em> recebe<br>pedidos de gás e água<br>automaticamente</h1>
+      <p class="hero-sub">Receba pedidos no WhatsApp e aceite com um clique. Sem aplicativos extras ou sistemas complicados.</p>
       <div class="hero-cta">
         <a href="https://wa.me/5515996993842?text=Ol%C3%A1!%20Tenho%20interesse%20em%20cadastrar%20minha%20distribuidora%20na%20Fastgas." class="btn-primary" target="_blank" rel="noopener">
           <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.3.7 4.4 1.8 6.2L4 29l8-2c1.7.9 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm6.6 16.7c-.3.8-1.6 1.5-2.3 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.7-5.7-4.9-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.7-.4 1-.4h.7c.2 0 .5-.1.8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.5.6-.2.2-.4.4-.2.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.8.3.1.5.1.7-.1.2-.2.8-1 1-1.3.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1 .3.2.6.2.6.4.1.2.1.9-.3 1.7z"/></svg>
@@ -1629,7 +1648,7 @@
         <div class="section-tag">01 / Como funciona</div>
         <h2>Três passos. Nada para instalar.</h2>
       </div>
-      <p class="section-lead">Você usa o mesmo WhatsApp de sempre. A Fastgas faz o resto.</p>
+      <p class="section-lead">Você usa o mesmo WhatsApp de hoje. A Fastgas faz o resto.</p>
     </div>
 
     <div class="steps">
@@ -1637,13 +1656,13 @@
         <div class="step-num">1</div>
         <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         <h3>Um consumidor próximo a você faz o pedido</h3>
-        <p>O cliente escolhe os produtos no catálogo, informa o endereço e a forma de pagamento diretamente pelo WhatsApp.</p>
+        <p>O cliente escolhe os produtos no catálogo, informa o endereço e a forma de pagamento pelo WhatsApp.</p>
       </div>
       <div class="step" data-reveal>
         <div class="step-num">2</div>
         <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <h3>O pedido chega no seu WhatsApp</h3>
-        <p>Fastgas envia o pedido para a distribuidora mais próxima disponível. Você recebe os produtos e forma de pagamento.</p>
+        <p>Fastgas envia o pedido para a distribuidora mais próxima disponível. Você recebe o pedido e forma de pagamento.</p>
       </div>
       <div class="step" data-reveal>
         <div class="step-num">3</div>
@@ -1663,7 +1682,7 @@
         <div class="section-tag">02 / Ganhos concretos</div>
         <h2>Mais vendas. Zero burocracia.</h2>
       </div>
-      <p class="section-lead">Nada de promessa vazia. Você ganha o que faz sentido pra quem entrega gás todo dia.</p>
+      <p class="section-lead">Você ganha o que faz sentido pra quem entrega gás e água todo dia.</p>
     </div>
 
     <div class="bgrid">
@@ -1675,12 +1694,12 @@
       <div class="bcard b-third" data-reveal>
         <div class="big">0<span class="unit">apps novos</span></div>
         <h3>Nada para instalar</h3>
-        <p>Funciona no WhatsApp que você já usa hoje. Sem dashboard, sem painel pra aprender.</p>
+        <p>Pedidos enviados para o WhatsApp da sua Distribuidora. Sem dashboard, sem painel pra aprender.</p>
       </div>
       <div class="bcard b-half" data-reveal style="background: linear-gradient(135deg, #FFB800 0%, #FFC533 100%); color: var(--ink); border-color: transparent;">
         <div class="big" style="color: var(--ink);">1<span class="unit" style="color: rgba(31,31,31,0.7);">toque</span></div>
-        <h3 style="color: var(--ink);">Aceitar pedido em um toque</h3>
-        <p style="color: rgba(31,31,31,0.7);">O botão “Aceitar pedido” aparece dentro da mensagem. Não tem chamada, não tem fila, não tem login. É o mesmo gesto de abrir uma conversa.</p>
+        <h3 style="color: var(--ink);">Aceitar pedido em um clique</h3>
+        <p style="color: rgba(31,31,31,0.7);">O botão “Aceitar” aparece na conversa. Não tem chamada, não tem fila, não tem login.</p>
       </div>
 
       <div class="bcard b-third" data-reveal>
@@ -1703,7 +1722,7 @@
           <h4 style="color: var(--yellow);">Com Fastgas</h4>
           <ul>
             <li><span class="ch">✓</span> Pedidos chegam direto, com endereço</li>
-            <li><span class="ch">✓</span> Você é o mais próximo: você atende</li>
+            <li><span class="ch">✓</span> Você é o mais próximo: você recebe o pedido</li>
             <li><span class="ch">✓</span> Cresce sem investir em propaganda</li>
           </ul>
         </div>
@@ -1739,7 +1758,7 @@
           <ul class="price-list">
             <li><span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Até 100 pedidos por mês</li>
             <li><span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Pedidos no seu WhatsApp atual</li>
-            <li><span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Botão “Aceitar pedido” no chat</li>
+            <li><span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Botão “Aceitar” no chat</li>
             <li><span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Endereço e geolocalização do cliente</li>
             <li><span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Cancele quando quiser, sem multa</li>
           </ul>
@@ -1763,7 +1782,7 @@
             <div class="pf-num">100<span style="font-size:24px; color: var(--ink-soft); font-weight:500; letter-spacing:0;"> pedidos</span></div>
             <h4>Incluídos no plano</h4>
           </div>
-          <p>Dividindo R$ 89 por 100 pedidos dá R$ 0,89 cada — preço de um café por uma venda nova entrando na sua rota.</p>
+          <p>Dividindo R$ 89 por 100 pedidos dá R$ 0,89 cada.</p>
         </div>
       </div>
     </div>
@@ -1778,7 +1797,7 @@
         <div class="section-tag">04 / Sem rodeio</div>
         <h2>Vamos resolver as dúvidas reais.</h2>
       </div>
-      <p class="section-lead">Respostas diretas. Sem letra miúda, sem promessa que a gente não vai cumprir.</p>
+      <p class="section-lead">Respostas diretas e rápidas.</p>
     </div>
 
     <div class="obj-list" id="objList">
@@ -1789,7 +1808,7 @@
           <span class="obj-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
         </button>
         <div class="obj-a"><div class="obj-a-inner">
-          <strong>Não.</strong> Os primeiros 10 pedidos é totalmente grátis. Você testa, mede o resultado e decide se quer seguir. Depois do período grátis, o plano é <strong>R$ 89/mês</strong>, com até 100 pedidos no mês — menos de R$ 1 por pedido.
+          <strong>Não.</strong> Os primeiros 10 pedidos são totalmente por nossa conta. Você testa, mede o resultado e decide se quer seguir. Depois do período grátis, o plano é <strong>R$ 89/mês</strong>, com até 100 pedidos no mês — menos de R$ 1 por pedido.
         </div></div>
       </div>
 
@@ -1800,7 +1819,7 @@
           <span class="obj-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
         </button>
         <div class="obj-a"><div class="obj-a-inner">
-          <strong>Nada.</strong> Sem app, sem painel, sem treinamento. Os pedidos chegam no <strong>WhatsApp que você já usa</strong>. Se você sabe ler uma mensagem e responder "sim", já sabe operar a Fastgas.
+          <strong>Nada.</strong> Sem app, sem painel, sem treinamento. Os pedidos chegam no <strong>WhatsApp que você já usa</strong>.
         </div></div>
       </div>
 
@@ -1818,11 +1837,11 @@
       <div class="obj-item">
         <button class="obj-q" type="button">
           <span class="qnum">Q.04</span>
-          <span class="qtxt">E se eu estiver ocupado e recusar pedidos?</span>
+          <span class="qtxt">E se eu estiver ocupado ou recusar pedidos?</span>
           <span class="obj-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
         </button>
         <div class="obj-a"><div class="obj-a-inner">
-          <strong>Sem problema.</strong> Se não tocar em “Aceitar”, o pedido vai para a próxima distribuidora da fila. Você não perde nota, não recebe ligação, não tem penalidade. Atende quando der, do jeito que der.
+          <strong>Sem problema.</strong> Se não responder à solicitação de pedido dentro de 1min ou clicar em “Recusar”, o pedido vai para a próxima distribuidora da fila. Você não perde nota, não recebe ligação, não tem penalidade. Atende quando der, do jeito que der.
         </div></div>
       </div>
     </div>
