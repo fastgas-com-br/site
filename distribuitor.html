@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Fastgas — Pedidos de gás direto no seu WhatsApp</title>
-<meta name="description" content="Receba pedidos de gás de cozinha e galão de água automaticamente no WhatsApp. Primeiro mês grátis. R$ 89/mês depois — menos de R$ 1 por pedido." />
+<title>Fastgas · Plataforma de crescimento para distribuidoras de gás e água</title>
+<meta name="description" content="Venda mais, nunca perca um pedido e automatize o atendimento. Comece grátis no Marketplace: seus 5 primeiros pedidos sem custo, sem mensalidade e sem setup." />
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32-32.png">
 <link rel="alternate icon" href="favicon.ico">
@@ -193,6 +193,13 @@
     gap: 20px;
     flex-wrap: wrap;
   }
+  .hero-ghost {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    transition: color .15s ease;
+  }
+  .hero-ghost:hover { color: var(--white); }
   .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -550,169 +557,170 @@
 
   /* --- PRICING --- */
   .pricing { background: var(--paper); }
-  .price-grid {
+  .pricing-tiers {
     display: grid;
-    grid-template-columns: 1.05fr 1fr;
-    gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     align-items: stretch;
   }
-  .price-card {
-    background: var(--ink);
-    color: var(--white);
+  .tier {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.08);
     border-radius: 24px;
-    padding: 40px 40px 36px;
-    position: relative;
-    overflow: hidden;
+    padding: 36px 30px 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
   }
-  .price-card::after {
+  .tier.featured {
+    background: var(--ink);
+    color: var(--white);
+    border-color: transparent;
+    box-shadow: 0 30px 60px -30px rgba(0,0,0,0.4);
+  }
+  .tier.featured::after {
     content: "";
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(circle at 100% 0%, rgba(255,184,0,0.18), transparent 45%),
+      radial-gradient(circle at 100% 0%, rgba(255,184,0,0.20), transparent 45%),
       radial-gradient(circle at 0% 100%, rgba(255,184,0,0.08), transparent 50%);
     pointer-events: none;
   }
-  .price-card > * { position: relative; z-index: 1; }
-  .price-tag {
+  .tier > * { position: relative; z-index: 1; }
+  .tier-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: var(--yellow);
-    color: var(--ink);
+    align-self: flex-start;
     font-family: var(--mono);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 6px 12px;
     border-radius: 999px;
-    align-self: flex-start;
+    margin-bottom: 22px;
+    background: rgba(31,31,31,0.06);
+    color: var(--ink-soft);
   }
-  .price-title {
+  .tier.featured .tier-badge { background: var(--yellow); color: var(--ink); }
+  .tier-name {
     font-family: var(--display);
-    font-size: 44px;
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    line-height: 1.02;
-    margin: 24px 0 12px;
-    text-wrap: balance;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 0 0 8px;
   }
-  .price-lead {
-    color: rgba(255,255,255,0.65);
-    font-size: 16px;
-    line-height: 1.55;
-    max-width: 440px;
-    margin: 0 0 32px;
+  .tier.featured .tier-name { color: rgba(255,255,255,0.55); }
+  .tier-lead {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0 0 24px;
+    min-height: 66px;
   }
-  .price-amount {
+  .tier.featured .tier-lead { color: rgba(255,255,255,0.68); }
+  .tier-price {
     display: flex;
     align-items: baseline;
-    gap: 10px;
-    margin: 0 0 8px;
-    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
   }
-  .price-amount .num {
+  .tier-price .amt {
     font-family: var(--display);
-    font-size: 72px;
+    font-size: 54px;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .tier.featured .tier-price .amt { color: var(--yellow); }
+  .tier-price .amt small {
+    font-size: 24px;
     font-weight: 600;
-    color: var(--yellow);
-    letter-spacing: -0.04em;
-    line-height: 0.9;
-  }
-  .price-amount .num small {
-    font-size: 32px;
-    font-weight: 500;
     vertical-align: top;
-    margin-right: 4px;
+    margin-right: 3px;
   }
-  .price-amount .per {
-    color: rgba(255,255,255,0.6);
-    font-size: 16px;
-  }
-  .price-strike {
-    text-decoration: line-through;
-    color: rgba(255,255,255,0.4);
-    margin-right: 8px;
-  }
-  .price-equiv {
-    font-family: var(--mono);
+  .tier-price .per { font-size: 15px; color: var(--mute); }
+  .tier.featured .tier-price .per { color: rgba(255,255,255,0.55); }
+  .tier-note {
     font-size: 13px;
-    letter-spacing: 0.04em;
-    color: var(--yellow);
-    margin: 0 0 28px;
+    line-height: 1.5;
+    color: var(--mute);
+    margin: 0 0 24px;
+    min-height: 39px;
   }
-  .price-list {
+  .tier.featured .tier-note { color: rgba(255,255,255,0.6); }
+  .tier-note b { color: var(--ink); font-weight: 700; }
+  .tier.featured .tier-note b { color: var(--yellow); }
+  .tier-divider { height: 1px; background: rgba(0,0,0,0.08); margin: 0 0 20px; }
+  .tier.featured .tier-divider { background: rgba(255,255,255,0.12); }
+  .tier-feats-lead {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    letter-spacing: 0.01em;
+    margin: 0 0 14px;
+  }
+  .tier-feats {
     list-style: none;
     padding: 0;
-    margin: 0 0 32px;
+    margin: 0 0 28px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-  }
-  .price-list li {
-    display: flex;
-    align-items: center;
     gap: 12px;
-    font-size: 15px;
-    color: rgba(255,255,255,0.85);
+    flex: 1;
   }
-  .price-list li .pcheck {
-    width: 20px; height: 20px;
+  .tier-feats li {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    font-size: 14.5px;
+    line-height: 1.4;
+    color: var(--ink-3);
+  }
+  .tier.featured .tier-feats li { color: rgba(255,255,255,0.88); }
+  .tier-feats li .tick {
+    width: 19px; height: 19px;
     border-radius: 50%;
-    background: rgba(255,184,0,0.15);
+    background: var(--ink);
     color: var(--yellow);
     display: grid; place-items: center;
     flex-shrink: 0;
+    margin-top: 1px;
   }
-  .price-list li .pcheck svg { width: 12px; height: 12px; }
-
-  .price-side {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  .price-feature {
-    background: var(--white);
-    border: 1px solid rgba(0,0,0,0.06);
-    border-radius: 20px;
-    padding: 28px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .price-feature h4 {
-    font-family: var(--display);
+  .tier.featured .tier-feats li .tick { background: rgba(255,184,0,0.16); }
+  .tier-feats li .tick svg { width: 11px; height: 11px; }
+  .tier-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 54px;
+    border-radius: 12px;
     font-weight: 600;
-    font-size: 22px;
-    margin: 0 0 8px;
-    letter-spacing: -0.015em;
+    font-size: 15px;
+    letter-spacing: -0.005em;
+    transition: transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
   }
-  .price-feature p {
-    color: var(--ink-soft);
-    font-size: 14.5px;
-    margin: 0;
-    line-height: 1.55;
-  }
-  .price-feature .pf-num {
-    font-family: var(--display);
-    font-size: 48px;
-    font-weight: 600;
-    color: var(--ink);
-    letter-spacing: -0.03em;
-    line-height: 1;
-    margin-bottom: 12px;
-  }
-  .price-feature .pf-num .y { color: var(--yellow); }
-  .price-feature.yellow {
+  .tier-cta.solid {
     background: var(--yellow);
-    border-color: transparent;
+    color: var(--ink);
+    border: 1.5px solid transparent;
+    box-shadow: 0 12px 28px -10px rgba(255,184,0,0.5);
   }
-  .price-feature.yellow p { color: rgba(31,31,31,0.75); }
+  .tier-cta.solid:hover { transform: translateY(-2px); background: var(--yellow-bright); }
+  .tier-cta.ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid rgba(0,0,0,0.18);
+  }
+  .tier-cta.ghost:hover { border-color: var(--ink); background: rgba(0,0,0,0.03); }
 
   /* --- SECTION SHELL --- */
   section { padding: 110px 0; position: relative; }
@@ -1150,10 +1158,10 @@
     }
     .obj-q { font-size: 17px; padding: 20px; gap: 16px; }
     .obj-a-inner { padding: 0 20px 22px 20px; font-size: 15px; }
-    .price-grid { grid-template-columns: 1fr; }
-    .price-card { padding: 32px 28px; }
-    .price-title { font-size: 34px; }
-    .price-amount .num { font-size: 58px; }
+    .pricing-tiers { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    .tier { padding: 32px 26px 28px; }
+    .tier-lead { min-height: 0; }
+    .tier-note { min-height: 0; }
     .cta { padding: 80px 0; }
     .btn-wa { height: 62px; padding: 0 24px; font-size: 16px; }
     .foot-grid { flex-direction: column; gap: 32px; }
@@ -1517,13 +1525,15 @@
 <header class="hero">
   <div class="container hero-grid">
     <div>
-      <h1 class="hero-title">Seu <em>WhatsApp</em> recebe<br>pedidos de gás e água<br>automaticamente</h1>
-      <p class="hero-sub">Receba pedidos no WhatsApp e aceite com um clique. Sem aplicativos extras ou sistemas complicados.</p>
+      <span class="eyebrow"><span class="dot"></span>Plataforma de crescimento</span>
+      <h1 class="hero-title" style="margin-top:24px;">Venda mais gás e água<br>e <em>nunca perca um pedido</em></h1>
+      <p class="hero-sub">A Fastgas ajuda sua distribuidora a receber mais pedidos, atender no automático e aparecer para novos clientes da sua região. Tudo no mesmo lugar.</p>
       <div class="hero-cta">
         <a href="https://wa.me/5515996993842?text=Ol%C3%A1!%20Tenho%20interesse%20em%20cadastrar%20minha%20distribuidora%20na%20Fastgas." class="btn-primary" target="_blank" rel="noopener">
           <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.3.7 4.4 1.8 6.2L4 29l8-2c1.7.9 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm6.6 16.7c-.3.8-1.6 1.5-2.3 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.7-5.7-4.9-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.7-.4 1-.4h.7c.2 0 .5-.1.8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.5.6-.2.2-.4.4-.2.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.8.3.1.5.1.7-.1.2-.2.8-1 1-1.3.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1 .3.2.6.2.6.4.1.2.1.9-.3 1.7z"/></svg>
           Quero ser parceiro
         </a>
+        <a href="#precos" class="hero-ghost">Ver planos e preços →</a>
       </div>
     </div>
 
@@ -1574,7 +1584,7 @@
               <div class="msg template" style="width: 100%; max-width: 100%; margin-left: 0;">
                 <div class="tpl-head">Distribuidora São João</div>
                 <div class="tpl-body">
-                  <span class="item">• 1x — Gás P13</span>
+                  <span class="item">• 1x Gás P13</span>
                   <span class="item" style="display:block;">• Água 20L</span>
                   <div class="meta" style="margin-top: 8px;">💳 R$ 148,00 (Pix)</div>
                   <div class="meta">📍 Distância: 2,3 km</div>
@@ -1605,7 +1615,7 @@
               <div style="margin: 8px 10px 6px; padding: 6px 10px; background: rgba(120,120,120,0.08); border-left: 3px solid #8A8A8A; border-radius: 4px; font-size: 12.5px; color: rgba(0,0,0,0.65); font-weight: 500;">Pedido No: WT2-6ZK</div>
               <div class="tpl-body">
                 <span class="item" style="font-weight:600; font-size:14px; color:#111B21;">Carlos Silva</span>
-                <span class="item" style="display:block; margin-top:6px;">• 1x — Gás P13</span>
+                <span class="item" style="display:block; margin-top:6px;">• 1x Gás P13</span>
                 <span class="item" style="display:block;">• Água 20L</span>
                 <div class="meta" style="margin-top:8px;">💳 R$ 148,00 (Pix)</div>
                 <span class="tpl-time">09:28</span>
@@ -1664,13 +1674,13 @@
         <div class="step-num">2</div>
         <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <h3>O pedido chega no seu WhatsApp</h3>
-        <p>Fastgas envia o pedido para a distribuidora mais próxima disponível. Você recebe o pedido e forma de pagamento.</p>
+        <p>A Fastgas manda o pedido para a distribuidora mais próxima que estiver disponível. Você vê o que o cliente pediu e como ele vai pagar.</p>
       </div>
       <div class="step" data-reveal>
         <div class="step-num">3</div>
         <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
         <h3>Toque em “Aceitar” e entregue</h3>
-        <p>Com um toque, você recebe os dados completos e a localização exata do consumidor para realizar a entrega.</p>
+        <p>Num toque, você recebe os dados do cliente e a localização certinha para fazer a entrega.</p>
       </div>
     </div>
   </div>
@@ -1689,14 +1699,14 @@
 
     <div class="bgrid">
       <div class="bcard b-third" data-reveal>
-        <div class="big">10<span class="unit">pedidos grátis</span></div>
+        <div class="big">5<span class="unit">pedidos grátis</span></div>
         <h3>Comece sem pagar nada</h3>
-        <p>Primeiros 10 pedidos por nossa conta.</p>
+        <p>Seus 5 primeiros pedidos do Marketplace por nossa conta. Sem mensalidade e sem setup.</p>
       </div>
       <div class="bcard b-third" data-reveal>
-        <div class="big">0<span class="unit">apps novos</span></div>
-        <h3>Nada para instalar</h3>
-        <p>Pedidos enviados para o WhatsApp da sua Distribuidora. Sem dashboard, sem painel pra aprender.</p>
+        <div class="big">1<span class="unit">plataforma</span></div>
+        <h3>Tudo em um só lugar</h3>
+        <p>Comece pelo WhatsApp que você já usa e evolua para automação e marketing quando quiser.</p>
       </div>
       <div class="bcard b-half" data-reveal style="background: linear-gradient(135deg, #FFB800 0%, #FFC533 100%); color: var(--ink); border-color: transparent;">
         <div class="big" style="color: var(--ink);">1<span class="unit" style="color: rgba(31,31,31,0.7);">toque</span></div>
@@ -1738,54 +1748,93 @@
   <div class="container">
     <div class="section-head">
       <div>
-        <div class="section-tag">03 / Preço</div>
-        <h2>Primeiros 10 pedidos grátis. Depois, menos de R$ 1 por pedido.</h2>
+        <div class="section-tag">03 / Planos</div>
+        <h2>Escolha como quer crescer.</h2>
       </div>
-      <p class="section-lead">Preço claro, sem letra miúda.</p>
+      <p class="section-lead">Comece grátis pelo Marketplace e evolua para automação e marketing quando quiser.</p>
     </div>
 
-    <div class="price-grid">
-      <div class="price-card" data-reveal>
-        <div>
-          <span class="price-tag"><span style="width:6px;height:6px;background:#1F1F1F;border-radius:50%;"></span> 10 pedidos grátis</span>
-          <h3 class="price-title">Plano Distribuidora</h3>
-          <p class="price-lead">Tudo o que você precisa pra começar a receber pedidos hoje.</p>
+    <div class="pricing-tiers">
+      <!-- MARKETPLACE -->
+      <div class="tier featured" data-reveal>
+        <span class="tier-badge"><span style="width:6px;height:6px;background:#1F1F1F;border-radius:50%;"></span> Comece grátis</span>
+        <h3 class="tier-name">Marketplace</h3>
+        <p class="tier-lead">Comece sem risco: seus 5 primeiros pedidos são grátis e você só paga quando a Fastgas trouxer venda.</p>
 
-          <div class="price-amount">
-            <span class="num"><small>R$</small>89</span>
-            <span class="per">/mês, depois do período grátis</span>
-          </div>
-          <div class="price-equiv">≈ menos de R$ 1,00 por pedido</div>
-
-          <ul class="price-list">
-            <li><span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Até 100 pedidos por mês</li>
-            <li><span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Pedidos no seu WhatsApp atual</li>
-            <li><span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Botão “Aceitar” no chat</li>
-            <li><span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Endereço e geolocalização do cliente</li>
-            <li><span class="pcheck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Cancele quando quiser, sem multa</li>
-          </ul>
+        <div class="tier-price">
+          <span class="amt"><small>R$</small>0</span>
+          <span class="per">/mês</span>
         </div>
+        <p class="tier-note">Sem mensalidade e sem setup. Depois dos 5 pedidos grátis, <b>5% de comissão</b> por pedido do marketplace.</p>
 
-        <a href="https://wa.me/5515996993842?text=Ol%C3%A1!%20Tenho%20interesse%20em%20cadastrar%20minha%20distribuidora%20na%20Fastgas." class="btn-primary" target="_blank" rel="noopener" style="align-self:flex-start;">
-          Quero ser parceiro
+        <div class="tier-divider"></div>
+        <ul class="tier-feats">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Pedidos gerados pelo Marketplace Fastgas</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Google Ads e Meta Ads por conta da Fastgas</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Sem compromisso mensal</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Sem custo de setup</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Pague só após os 5 primeiros pedidos</li>
+        </ul>
+
+        <a href="https://wa.me/5515996993842?text=Ol%C3%A1!%20Quero%20come%C3%A7ar%20no%20Marketplace%20da%20Fastgas%20e%20receber%20pedidos." class="tier-cta solid" target="_blank" rel="noopener">
+          Começar a receber pedidos
         </a>
       </div>
 
-      <div class="price-side">
-        <div class="price-feature yellow" data-reveal>
-          <div>
-            <div class="pf-num">10 pedidos</div>
-            <h4>Por nossa conta</h4>
-          </div>
-          <p>Primeiros 10 pedidos por nossa conta. Só paga se você decidir continuar.</p>
+      <!-- ESSENCIAL -->
+      <div class="tier" data-reveal>
+        <span class="tier-badge">Automação</span>
+        <h3 class="tier-name">Essencial</h3>
+        <p class="tier-lead">Para quem já traz os próprios clientes e quer automatizar todo o processo de vendas.</p>
+
+        <div class="tier-price">
+          <span class="amt"><small>R$</small>299</span>
+          <span class="per">/mês</span>
         </div>
-        <div class="price-feature" data-reveal>
-          <div>
-            <div class="pf-num">100<span style="font-size:24px; color: var(--ink-soft); font-weight:500; letter-spacing:0;"> pedidos</span></div>
-            <h4>Incluídos no plano</h4>
-          </div>
-          <p>Dividindo R$ 89 por 100 pedidos dá R$ 0,89 cada.</p>
+        <p class="tier-note">+ <b>R$ 490</b> de setup único, cobrado uma vez.</p>
+
+        <div class="tier-divider"></div>
+        <ul class="tier-feats">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Chatbot no WhatsApp</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Seu próprio número de WhatsApp</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Catálogo de produtos</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Gestão de pedidos</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Gestão de entregadores</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Dashboard e relatórios</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Atendimento automático</li>
+        </ul>
+
+        <a href="https://wa.me/5515996993842?text=Ol%C3%A1!%20Tenho%20interesse%20no%20plano%20Essencial%20da%20Fastgas." class="tier-cta ghost" target="_blank" rel="noopener">
+          Automatizar minhas vendas
+        </a>
+      </div>
+
+      <!-- PRO -->
+      <div class="tier" data-reveal>
+        <span class="tier-badge">Crescimento</span>
+        <h3 class="tier-name">Pro</h3>
+        <p class="tier-lead">Automação e clientes novos no mesmo plano, pra você vender mais todo mês.</p>
+
+        <div class="tier-price">
+          <span class="amt"><small>R$</small>1.290</span>
+          <span class="per">/mês</span>
         </div>
+        <p class="tier-note">+ <b>R$ 490</b> de setup · verba de anúncios paga à parte.</p>
+
+        <div class="tier-divider"></div>
+        <p class="tier-feats-lead">Tudo do Essencial, mais:</p>
+        <ul class="tier-feats">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Gestão de Google Ads</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Gestão de Meta Ads</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Landing page</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Campanhas de remarketing</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Relatórios de marketing</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12l5 5L20 7"/></svg></span>Consultoria de crescimento</li>
+        </ul>
+
+        <a href="https://wa.me/5515996993842?text=Ol%C3%A1!%20Tenho%20interesse%20no%20plano%20Pro%20da%20Fastgas." class="tier-cta ghost" target="_blank" rel="noopener">
+          Crescer meu negócio
+        </a>
       </div>
     </div>
   </div>
@@ -1810,7 +1859,7 @@
           <span class="obj-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
         </button>
         <div class="obj-a"><div class="obj-a-inner">
-          <strong>Não.</strong> Os primeiros 10 pedidos são totalmente por nossa conta. Você testa, mede o resultado e decide se quer seguir. Depois do período grátis, o plano é <strong>R$ 89/mês</strong>, com até 100 pedidos no mês — menos de R$ 1 por pedido.
+          <strong>Não.</strong> No Marketplace você não paga mensalidade nem taxa de setup. Os 5 primeiros pedidos são por nossa conta. Depois deles, a Fastgas fica com <strong>5% de comissão</strong> sobre cada pedido do marketplace. Ou seja: você só paga quando a gente traz venda pra você.
         </div></div>
       </div>
 
@@ -1821,7 +1870,7 @@
           <span class="obj-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
         </button>
         <div class="obj-a"><div class="obj-a-inner">
-          <strong>Nada.</strong> Sem app, sem painel, sem treinamento. Os pedidos chegam no <strong>WhatsApp que você já usa</strong>.
+          <strong>Para começar no Marketplace, nada.</strong> Sem app e sem instalação: os pedidos chegam no <strong>WhatsApp que você já usa</strong>. Nos planos Essencial e Pro, a gente configura tudo pra você no setup, então você não precisa mexer em nada técnico.
         </div></div>
       </div>
 
@@ -1844,6 +1893,17 @@
         </button>
         <div class="obj-a"><div class="obj-a-inner">
           <strong>Sem problema.</strong> Se não responder à solicitação de pedido dentro de 1min ou clicar em “Recusar”, o pedido vai para a próxima distribuidora da fila. Você não perde nota, não recebe ligação, não tem penalidade. Atende quando der, do jeito que der.
+        </div></div>
+      </div>
+
+      <div class="obj-item">
+        <button class="obj-q" type="button">
+          <span class="qnum">Q.05</span>
+          <span class="qtxt">Qual plano é o certo pra mim?</span>
+          <span class="obj-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+        </button>
+        <div class="obj-a"><div class="obj-a-inner">
+          Depende de onde você está hoje. O <strong>Marketplace</strong> é o jeito mais fácil de começar a receber pedidos sem risco. O <strong>Essencial</strong> é pra quem já tem clientes e só quer automatizar o atendimento e a gestão. E o <strong>Pro</strong> é pra quem quer crescer de verdade: a Fastgas roda seus anúncios no Google e no Meta e ainda te ajuda com consultoria.
         </div></div>
       </div>
     </div>
@@ -1913,7 +1973,7 @@
       <span>Florianópolis · Santa Catarina</span>
     </div>
     <div class="foot-legal">
-      Fastgas é um produto da BACKLAB TECNOLOGIA LTDA · CNPJ 51.694.798/0001-50 · Florianópolis – SC · contato@fastgas.com.br
+      Fastgas é um produto da BACKLAB TECNOLOGIA LTDA · CNPJ 51.694.798/0001-50 · Florianópolis, SC · contato@fastgas.com.br
     </div>
   </div>
 </footer>
