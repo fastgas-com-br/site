@@ -13,25 +13,42 @@
   gtag('config', 'G-6YXKM08Q7R');
 </script>
 
-<title>Fastgas | Peça gás e água pelo WhatsApp</title>
-<meta name="description" content="Peça gás de cozinha e galão de água em poucos toques pelo WhatsApp. A Fastgas conecta você ao distribuidor mais próximo em Florianópolis e região." />
+<title>Peça gás e água pelo WhatsApp | Fastgas</title>
+<meta name="description" content="Peça gás de cozinha e galão de água pelo WhatsApp. Veja os produtos e os preços disponíveis na sua região e receba da distribuidora mais próxima." />
 <link rel="canonical" href="https://fastgas.com.br/" />
+<meta name="theme-color" content="#FFC533" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Fastgas" />
 <meta property="og:locale" content="pt_BR" />
 <meta property="og:url" content="https://fastgas.com.br/" />
-<meta property="og:title" content="Fastgas | Peça gás e água pelo WhatsApp" />
-<meta property="og:description" content="Peça gás de cozinha e galão de água em poucos toques pelo WhatsApp. A Fastgas conecta você ao distribuidor mais próximo em Florianópolis e região." />
+<meta property="og:title" content="Peça gás e água pelo WhatsApp | Fastgas" />
+<meta property="og:description" content="Peça gás de cozinha e galão de água pelo WhatsApp. Veja os produtos e os preços disponíveis na sua região e receba da distribuidora mais próxima." />
 <meta property="og:image" content="https://fastgas.com.br/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Fastgas | Peça gás e água pelo WhatsApp" />
+<meta property="og:image:alt" content="Conversa no WhatsApp com um pedido de gás e água pela Fastgas" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Fastgas | Peça gás e água pelo WhatsApp" />
-<meta name="twitter:description" content="Peça gás de cozinha e galão de água em poucos toques pelo WhatsApp. A Fastgas conecta você ao distribuidor mais próximo em Florianópolis e região." />
+<meta name="twitter:title" content="Peça gás e água pelo WhatsApp | Fastgas" />
+<meta name="twitter:description" content="Peça gás de cozinha e galão de água pelo WhatsApp. Veja os produtos e os preços disponíveis na sua região e receba da distribuidora mais próxima." />
 <meta name="twitter:image" content="https://fastgas.com.br/og-image.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Fastgas",
+  "url": "https://fastgas.com.br/",
+  "logo": "https://fastgas.com.br/logo.svg",
+  "email": "contato@fastgas.com.br",
+  "areaServed": "Florianópolis e região, Santa Catarina",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "BACKLAB TECNOLOGIA LTDA"
+  }
+}
+</script>
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32-32.png">
@@ -46,7 +63,7 @@
     --ink: #1F1F1F;
     --ink-2: #2B2B2B;
     --ink-soft: #5C5C5C;
-    --mute: #8A8A8A;
+    --mute: #6E6E6E;
     --line: #ECECEC;
     --line-2: #E0E0E0;
     --bg: #FFFFFF;
@@ -131,16 +148,15 @@
     gap: 8px;
     height: 40px;
     padding: 0 20px 0 14px;
-    background: var(--yellow);
+    background: var(--green-wa);
     color: var(--ink);
     border-radius: 999px;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 14px;
-    transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
-    box-shadow: 0 2px 8px -2px rgba(255,184,0,0.4);
+    transition: background .15s ease, transform .15s ease;
   }
-  .nav-cta:hover { background: var(--yellow-2); transform: translateY(-1px); box-shadow: 0 4px 12px -2px rgba(255,184,0,0.55); }
-  .nav-cta svg { width: 18px; height: 18px; color: var(--ink); flex-shrink: 0; }
+  .nav-cta:hover { transform: translateY(-1px); }
+  .nav-cta svg { width: 18px; height: 18px; color: currentColor; flex-shrink: 0; }
   .nav-mobile { display: none; }
 
   /* --- HERO --- */
@@ -166,8 +182,8 @@
   .badge {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 6px 14px 6px 6px;
+    gap: 11px;
+    padding: 7px 16px 7px 14px;
     background: var(--bg-soft);
     border-radius: 999px;
     font-size: 13.5px;
@@ -176,12 +192,10 @@
     margin-bottom: 28px;
   }
   .badge .dot {
-    width: 22px; height: 22px;
-    background: var(--yellow);
-    border-radius: 50%;
-    display: grid; place-items: center;
-    font-size: 11px;
+    display: inline-flex;
+    align-items: center;
   }
+  .badge .dot img { height: 30px; width: auto; display: block; }
   .badge .pulse {
     width: 6px; height: 6px;
     background: #18A957;
@@ -226,29 +240,18 @@
     gap: 12px;
     height: 60px;
     padding: 0 28px;
-    background: var(--yellow);
+    background: var(--green-wa);
     color: var(--ink);
     border-radius: 16px;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 17px;
     letter-spacing: -0.01em;
-    transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
-    box-shadow:
-      0 1px 0 rgba(255,255,255,0.5) inset,
-      0 -1px 0 rgba(0,0,0,0.05) inset,
-      0 14px 32px -8px rgba(255,184,0,0.55),
-      0 4px 10px rgba(0,0,0,0.06);
+    transition: background .15s ease, transform .15s ease;
   }
   .btn-primary:hover {
-    background: var(--yellow-2);
     transform: translateY(-2px);
-    box-shadow:
-      0 1px 0 rgba(255,255,255,0.5) inset,
-      0 -1px 0 rgba(0,0,0,0.05) inset,
-      0 22px 40px -8px rgba(255,184,0,0.7),
-      0 6px 14px rgba(0,0,0,0.08);
   }
-  .btn-primary svg { width: 22px; height: 22px; color: var(--ink); flex-shrink: 0; }
+  .btn-primary svg { width: 22px; height: 22px; color: currentColor; flex-shrink: 0; }
 
   .trust {
     display: flex;
@@ -976,7 +979,7 @@
     opacity: 0.08;
     pointer-events: none;
   }
-  .distrib h3 {
+  .distrib h2 {
     font-size: clamp(26px, 3vw, 34px);
     font-weight: 700;
     margin: 0 0 12px;
@@ -1016,9 +1019,9 @@
     position: relative;
   }
   .btn-outline-light:hover {
-    background: var(--yellow);
+    background: var(--green-wa);
     color: var(--ink);
-    border-color: var(--yellow);
+    border-color: var(--green-wa);
   }
   .btn-outline-light svg { width: 16px; height: 16px; pointer-events: none; }
 
@@ -1050,20 +1053,18 @@
     gap: 12px;
     height: 60px;
     padding: 0 28px;
-    background: var(--ink);
-    color: #fff;
+    background: var(--green-wa);
+    color: var(--ink);
     border-radius: 16px;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 17px;
     letter-spacing: -0.01em;
-    box-shadow: 0 16px 36px -10px rgba(31,31,31,0.4);
-    transition: transform .15s ease, box-shadow .15s ease;
+    transition: background .15s ease, transform .15s ease;
   }
   .btn-cta-big:hover {
     transform: translateY(-2px);
-    box-shadow: 0 22px 44px -10px rgba(31,31,31,0.5);
   }
-  .btn-cta-big svg { width: 22px; height: 22px; color: var(--green-wa); flex-shrink: 0; }
+  .btn-cta-big svg { width: 22px; height: 22px; color: currentColor; flex-shrink: 0; }
   .final-cta small {
     display: block;
     margin-top: 18px;
@@ -1189,11 +1190,11 @@
       <a href="#como" class="nav-link">Como funciona</a>
       <a href="#beneficios" class="nav-link">Vantagens</a>
       <a href="#cobertura" class="nav-link">Cobertura</a>
-      <a href="distribuitor.html" class="nav-link" target="_blank" rel="noopener">Para distribuidoras</a>
+      <a href="distribuitor.html" class="nav-link">Para distribuidoras</a>
     </div>
     <a href="https://wa.me/c/554831970675" class="nav-cta" target="_blank" rel="noopener">
       <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.3.7 4.4 1.8 6.2L4 29l8-2c1.7.9 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm6.6 16.7c-.3.8-1.6 1.5-2.3 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.7-5.7-4.9-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.7-.4 1-.4h.7c.2 0 .5-.1.8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.5.6-.2.2-.4.4-.2.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.8.3.1.5.1.7-.1.2-.2.8-1 1-1.3.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1 .3.2.6.2.6.4.1.2.1.9-.3 1.7z"/></svg>
-      Pedir agora
+      Pedir gás ou água
     </a>
   </div>
 </nav>
@@ -1203,12 +1204,16 @@
   <div class="hero-bg"></div>
   <div class="container hero-inner">
     <div>
-<h1>Peça gás e água pelo <em>WhatsApp</em> em poucos cliques</h1>
-      <p class="hero-sub">Escolha no catálogo, confirme o pedido e receba da distribuidora mais próxima.</p>
+      <span class="badge">
+        <span class="dot"><img src="meta-oficial.png" alt="Meta" width="1140" height="1125" /></span>
+        WhatsApp oficial
+      </span>
+      <h1>Peça gás e água pelo <em>WhatsApp</em></h1>
+      <p class="hero-sub">Você vê os produtos e os preços disponíveis na sua região, escolhe no catálogo e recebe da distribuidora mais próxima.</p>
       <div class="hero-cta-row">
         <a href="https://wa.me/c/554831970675" class="btn-primary" target="_blank" rel="noopener">
           <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.3.7 4.4 1.8 6.2L4 29l8-2c1.7.9 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm6.6 16.7c-.3.8-1.6 1.5-2.3 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.7-5.7-4.9-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.7-.4 1-.4h.7c.2 0 .5-.1.8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.5.6-.2.2-.4.4-.2.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.8.3.1.5.1.7-.1.2-.2.8-1 1-1.3.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1 .3.2.6.2.6.4.1.2.1.9-.3 1.7z"/></svg>
-          Pedir no WhatsApp
+          Pedir gás ou água
         </a>
       </div>
     </div>
@@ -1280,7 +1285,7 @@
                 <span aria-hidden="true">📦</span> Pedido recebido
               </div>
               <div class="body">
-                Buscando o distribuidor mais próximo
+                Buscando distribuidora mais próxima
                 <span class="t">21:09</span>
               </div>
               <div class="msg-divider"></div>
@@ -1334,24 +1339,24 @@
     <div class="section-head">
       <span class="eyebrow">Como funciona</span>
       <h2>Três passos. Nada para baixar.</h2>
-      <p class="section-sub">Tudo acontece no WhatsApp.</p>
+      <p class="section-sub">Tudo acontece na conversa do WhatsApp.</p>
     </div>
     <div class="how-steps">
       <div class="step" data-reveal>
         <div class="step-num"><span class="n">1</span> Passo</div>
         <div class="icon-tile">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </div>
-        <h3>Escolha no catálogo</h3>
-        <p>Abra a conversa, escolha os itens no catálogo e monte seu pedido em segundos.</p>
+        <h3>Veja o catálogo da sua região</h3>
+        <p>Abra a conversa e informe onde você está. O catálogo mostra os produtos e os preços disponíveis no seu endereço.</p>
       </div>
       <div class="step" data-reveal>
         <div class="step-num"><span class="n">2</span> Passo</div>
         <div class="icon-tile">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
         </div>
-        <h3>Confirme endereço e pagamento</h3>
-        <p>Informe o endereço e a forma de pagamento.</p>
+        <h3>Escolha os itens e confirme</h3>
+        <p>Você monta o pedido com o catálogo da sua região e confirma a forma de pagamento: Pix, cartão ou dinheiro na entrega.</p>
       </div>
       <div class="step" data-reveal>
         <div class="step-num"><span class="n">3</span> Passo</div>
@@ -1359,7 +1364,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h13l5 5v5h-3"/><path d="M3 17h11"/><circle cx="6" cy="17" r="2"/><circle cx="18" cy="17" r="2"/></svg>
         </div>
         <h3>Receba em casa</h3>
-        <p>A distribuidora mais próxima sai para a entrega.</p>
+        <p>Uma distribuidora que atende o seu endereço aceita o pedido e sai para a entrega.</p>
       </div>
     </div>
   </div>
@@ -1369,9 +1374,9 @@
 <section class="benefits" id="beneficios">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow">Por que escolher Fastgas</span>
-      <h2>Pedir gás e água facilmente.</h2>
-      <p class="section-sub">Sem instalar nada. Sem cadastro. Sem perder tempo procurando contato. Sem imã de geladeira.</p>
+      <span class="eyebrow">Por que usar a Fastgas</span>
+      <h2>Pedir gás e água sem complicação.</h2>
+      <p class="section-sub">Sem instalar nada, sem cadastro e sem procurar o número da distribuidora na geladeira.</p>
     </div>
 
     <div class="b-grid">
@@ -1380,42 +1385,42 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
         <h3>Pedido em segundos</h3>
-        <p>Catálogo no chat, adicione e pronto. Sem ligar, sem digitar endereço toda vez.</p>
+        <p>Catálogo direto no chat: escolha, envie e pronto. Sem ligar e sem repetir o endereço toda vez.</p>
       </div>
       <div class="b-card" data-reveal>
         <div class="icon-tile">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         </div>
-        <h3>No WhatsApp</h3>
-        <p>Nada de baixar app novo ou realizar cadastros.</p>
+        <h3>No WhatsApp que você já usa</h3>
+        <p>Nada de baixar aplicativo novo nem criar mais um cadastro.</p>
       </div>
       <div class="b-card" data-reveal>
         <div class="icon-tile">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </div>
-        <h3>Distribuidor mais próximo</h3>
-        <p>A gente acha quem está perto e disponível. Você não perde tempo procurando.</p>
+        <h3>Ofertas da sua região</h3>
+        <p>Antes de escolher, você vê o que está disponível no seu endereço e por quanto.</p>
       </div>
       <div class="b-card" data-reveal>
         <div class="icon-tile">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 4 7 14 2 9"/><polyline points="22 4 12 14 9.5 11.5"/></svg>
         </div>
-        <h3>Confirmação rápida</h3>
-        <p>A entrega é confirmada em minutos pela distribuidora. Sem ficar no vácuo.</p>
+        <h3>Confirmação na conversa</h3>
+        <p>A distribuidora aceita o pedido e você recebe a confirmação ali mesmo, no chat.</p>
       </div>
       <div class="b-card" data-reveal>
         <div class="icon-tile">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
-        <h3>Status em tempo real</h3>
-        <p>Acompanhe a confirmação e previsão de entrega — tudo na conversa.</p>
+        <h3>Acompanhe o pedido</h3>
+        <p>Confirmação e previsão de entrega chegam na mesma conversa.</p>
       </div>
       <div class="b-card" data-reveal>
         <div class="icon-tile">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         </div>
-        <h3>Previsibilidade de preço</h3>
-        <p>Você vê o preço dos itens e o total antes de enviar o pedido.</p>
+        <h3>Preço na tela, sem surpresa</h3>
+        <p>O preço de cada item e o total aparecem antes de você enviar o pedido.</p>
       </div>
     </div>
   </div>
@@ -1426,18 +1431,17 @@
   <div class="container">
     <div class="coverage-grid">
       <div class="coverage-text">
-        <span class="eyebrow">Cobertura</span>
-        <h2>Atendendo Florianópolis e região.</h2>
-        <p class="section-sub" style="margin: 0 0 16px;">Distribuidoras parceiras espalhadas pela Grande Floripa pra entregar rápido onde você estiver.</p>
+        <span class="eyebrow">Cobertura e preços</span>
+        <h2>Cada região tem o seu catálogo.</h2>
+        <p class="section-sub" style="margin: 0 0 16px;">A Fastgas trabalha com distribuidoras parceiras na Grande Florianópolis. Quando você informa o endereço, o catálogo mostra os produtos e os preços de quem atende ali. Por isso o valor pode mudar de um bairro para outro.</p>
         <div class="coverage-stats">
-          <div class="stat"><div class="num">25+</div><div class="lbl">Bairros atendidos</div></div>
-          <div class="stat"><div class="num">~25 min</div><div class="lbl">Tempo médio</div></div>
+          <div class="stat"><div class="num">Por região</div><div class="lbl">Produtos e preços</div></div>
           <div class="stat"><div class="num">7 dias</div><div class="lbl">Por semana</div></div>
         </div>
       </div>
 
-      <div class="map" aria-hidden="true">
-        <img src="map.svg" alt="Mapa de cobertura — Florianópolis e região" />
+      <div class="map">
+        <img src="map.svg" alt="Mapa da área atendida pela Fastgas em Florianópolis e região" width="719" height="1672" />
         <!-- top area dots (top 35%) — positioned against actual island path coordinates -->
         <div class="map-dot" style="top:9%;  left:59%;"></div>
         <div class="map-dot" style="top:11%; left:61%;"></div>
@@ -1482,10 +1486,10 @@
   <div class="distrib">
     <div>
       <span class="label">Tem distribuidora?</span>
-      <h3>Receba pedidos no seu WhatsApp.</h3>
-      <p>A Fastgas envia clientes da sua região direto pra você. Sem app, sem painel. O pedido chega no chat, é só aceitar.</p>
+      <h2>Receba pedidos no WhatsApp da sua distribuidora.</h2>
+      <p>Você pode receber os pedidos que a Fastgas gera na sua região ou montar a sua própria operação no WhatsApp, com a sua marca e o seu número.</p>
     </div>
-    <a href="distribuitor.html" class="btn-outline-light" target="_blank" rel="noopener">
+    <a href="distribuitor.html" class="btn-outline-light">
       Saber mais
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
@@ -1496,10 +1500,10 @@
 <section style="padding: 0;">
   <div class="final-cta">
     <h2>Seu gás está a um clique de distância.</h2>
-    <p>Abra a conversa, escolha no catálogo, receba em casa. Simples assim.</p>
+    <p>Abra a conversa, veja o catálogo da sua região e receba em casa.</p>
     <a href="https://wa.me/c/554831970675" class="btn-cta-big" target="_blank" rel="noopener">
       <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.3.7 4.4 1.8 6.2L4 29l8-2c1.7.9 3.7 1.5 5.7 1.5 6.6 0 12-5.4 12-12S22.6 3 16 3zm6.6 16.7c-.3.8-1.6 1.5-2.3 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.7-5.7-4.9-.2-.2-1.4-1.8-1.4-3.5s.9-2.5 1.2-2.8c.3-.3.7-.4 1-.4h.7c.2 0 .5-.1.8.6.3.7 1 2.5 1.1 2.7.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.5-.5.6-.2.2-.4.4-.2.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.8 1.8.3.1.5.1.7-.1.2-.2.8-1 1-1.3.2-.3.4-.3.7-.2.3.1 1.9.9 2.2 1 .3.2.6.2.6.4.1.2.1.9-.3 1.7z"/></svg>
-      Pedir no WhatsApp
+      Pedir gás ou água
     </a>
   </div>
 </section>
@@ -1510,14 +1514,14 @@
     <div class="foot-grid">
       <div class="foot-left">
         <a href="#" class="logo"><img src="logo_cilinder.svg" alt="Fastgas" /></a>
-        <p>Gás e água pelo WhatsApp. Da distribuidora mais próxima, em poucos minutos.</p>
+        <p>Gás e água pelo WhatsApp, com os produtos e os preços disponíveis na sua região.</p>
       </div>
       <div class="foot-links">
         <div class="foot-col">
           <h6>Produto</h6>
           <a href="#como">Como funciona</a>
           <a href="#beneficios">Vantagens</a>
-          <a href="#cobertura">Cobertura</a>
+          <a href="#cobertura">Cobertura e preços</a>
         </div>
         <div class="foot-col">
           <h6>Contato</h6>
@@ -1527,7 +1531,7 @@
         </div>
         <div class="foot-col">
           <h6>Empresa</h6>
-          <a href="distribuitor.html" target="_blank" rel="noopener">Para distribuidoras</a>
+          <a href="distribuitor.html">Para distribuidoras</a>
           <a href="privacy-policy.html">Política de privacidade</a>
           <a href="terms-of-use.html">Termos de uso</a>
         </div>
